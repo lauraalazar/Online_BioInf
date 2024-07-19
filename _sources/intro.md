@@ -1,3 +1,7 @@
+# Curso de Bioinformática
+En estas páginas compartiré el material de introducción a la Bioinformática, 
+adaptado para el curso de la Escuela de Ingeniería de Antioquia (EIA)
+
 # Cómo leer este documento
 
 Los comandos para digitar están en casillas grises, así
