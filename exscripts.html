@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Curso de Bioinformática &#8212; Material para el curso de Bioinformatica-EIA</title>
+    <title>Scripts Ejecutables &#8212; Material para el curso de Bioinformatica-EIA</title>
   
   
   
@@ -61,10 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exscripts';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introducción a la Terminal" href="intro_linux.html" />
+    <link rel="next" title="Variables, declaraciones y loops" href="variables.html" />
+    <link rel="prev" title="Introducción a la Terminal" href="intro_linux.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -149,15 +150,15 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Curso de Bioinformática
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro_linux.html">Introducción a la Terminal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exscripts.html">Scripts Ejecutables</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Scripts Ejecutables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables, declaraciones y loops</a></li>
 </ul>
 
@@ -230,7 +231,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexscripts.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -260,7 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/exscripts.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -270,7 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -342,7 +343,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Curso de Bioinformática</h1>
+    <h1>Scripts Ejecutables</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,10 +353,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Curso de Bioinformática</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-este-documento">Cómo leer este documento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de Texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hacer-un-archivo-ejecutable">Hacer un archivo ejecutable</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -366,28 +366,60 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="curso-de-bioinformatica">
-<h1>Curso de Bioinformática<a class="headerlink" href="#curso-de-bioinformatica" title="Permalink to this heading">#</a></h1>
-<p>En estas páginas compartiré el material de introducción a la Bioinformática,
-adaptado para el curso de la Escuela de Ingeniería de Antioquia (EIA)</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="como-leer-este-documento">
-<h1>Cómo leer este documento<a class="headerlink" href="#como-leer-este-documento" title="Permalink to this heading">#</a></h1>
-<p>Los comandos para digitar están en casillas grises, así</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="scripts-ejecutables">
+<h1>Scripts Ejecutables<a class="headerlink" href="#scripts-ejecutables" title="Permalink to this heading">#</a></h1>
+<p>Ahora que ya estamos un poco familiarizados con la línea de comando, vamos a utilizar algunas herramientas básicas de programación: al digitar un comando, este da una instrucción para recibir una inofrmación. Este proceso se puede <strong>automatizar</strong> (por ejemplo mover, renombrar y copiar archivos), escribiendo el comando en un <strong>script</strong>.</p>
+<p>Los scripts son la forma mas simple de escribir un programa. Vamos a escribir un <strong>script bash</strong> y a ejecutarlo.</p>
+<section id="editores-de-texto">
+<h2>Editores de Texto<a class="headerlink" href="#editores-de-texto" title="Permalink to this heading">#</a></h2>
+<p>Dentro del directorio <code class="docutils literal notranslate"><span class="pre">biocomp_clase1</span></code> vamos a crear un nuevo archivo llamado <code class="docutils literal notranslate"><span class="pre">miscript.sh</span></code>. Puedes hacer esto utilizando un editor de texto de terminal llamado <code class="docutils literal notranslate"><span class="pre">nano</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<p>Los comandos o archivos que se mencionan entre texto (y por lo tanto deben escribirse tal cual) se ven así: <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
-<p>Entre corchetes se designan teclas, por ejemplo <code class="docutils literal notranslate"><span class="pre">[ctl]</span></code> es la tecla ctl</p>
-<div class="alert alert-block alert-danger">
-<b>Los cuadros rojos</b> son alertas de acciones que pueden ocasionar daño irreversible
- </div>
-<div class="alert alert-block alert-warning">
-<b>Los cuadros amarillos</b> tienen notas de advertencias y recomendaciones </div>
-<div class="alert alert-block alert-info">
-<b>Los cuadros en azul</b> son ejercicios</div>
-<div class="toctree-wrapper compound">
+<p>Este comando inicia el editor de texto. A continuación escriba <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">Hello</span> <span class="pre">World!</span></code>. “Hello World!” es una frase icónica en programación y “echo” es una instrucción que reproduce el texto que sigue. Guarde el archivo usando <code class="docutils literal notranslate"><span class="pre">[ctrl-o]</span> <span class="pre">[enter]</span></code>  y cierre el programa con <code class="docutils literal notranslate"><span class="pre">[ctrl-x]</span> <span class="pre">[enter]</span></code>. En la terminal, ejecute el script con el siguiente comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
 </div>
+<p><strong>Bash</strong> es un “interpretador” que lee el archivo y entiende cómo ejecutar el comando.</p>
+<p>Otra opción para editor de text es <em>Vim</em>, aunque requiere mas comandos para cada instrucción, está disponible en casi todas la instalaciones de linux</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Después, presione la tecla <code class="docutils literal notranslate"><span class="pre">[i]</span></code> para entrar en modo de inserción.
+En la parte inferior debe aparecer <em>– INSERT –</em> y entonces puede añadirl el texto “echo Hello World!”.
+Para guardar y salir de Vim haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Cambie a modo de comando presionando <code class="docutils literal notranslate"><span class="pre">[Esc]</span></code></p></li>
+<li><p>Escriba <code class="docutils literal notranslate"><span class="pre">[:]</span></code> (dos puntos) para abrir la barra prompt bar en la esquina inferior izquierda.</p></li>
+<li><p>Escriba <code class="docutils literal notranslate"><span class="pre">[x]</span></code> después de “:” y  <code class="docutils literal notranslate"><span class="pre">[Enter]</span></code></p></li>
+</ol>
+</section>
+<section id="hacer-un-archivo-ejecutable">
+<h2>Hacer un archivo ejecutable<a class="headerlink" href="#hacer-un-archivo-ejecutable" title="Permalink to this heading">#</a></h2>
+<p>Liste los archivos en el directorio con la opción <code class="docutils literal notranslate"><span class="pre">-l</span></code> para mas información</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
+<span class="n">total</span> <span class="mi">12</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">usuario</span> <span class="n">root</span>   <span class="mi">18</span> <span class="n">Jun</span> <span class="mi">26</span> <span class="mi">10</span><span class="p">:</span><span class="mi">56</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>La primera lista de caracteres indica los <strong>permisos</strong> del archivo. Aquí vemos que el usuario tiene permiso de lectura (<code class="docutils literal notranslate"><span class="pre">r</span></code>) y escritura (<code class="docutils literal notranslate"><span class="pre">w</span></code>), pero no de ejecución(<code class="docutils literal notranslate"><span class="pre">x</span></code>).
+Para entender mejor este tema puede consultar este <a class="reference external" href="https://ryanstutorials.net/linuxtutorial/permissions.php">tutorial sobre permisos</a>. Vamos a cambiar el permiso de ejecución</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Ahora todos los usuarios tienen permiso para ejecutar el archivo. Como es un script muy simple y sin consecuencias, no nos preocupa que todos tengan permisos. En otros casos es muy importante tener cuidado. Ahora lo podemos ejecutar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<div class="alert alert-block alert-warning">
+<b>Ejemplo de script:</b> Con frecuencia se recomienda añadir una primera línea en el script que indica el interpretador que se debe usar. En este caso es el interpretador por defecto (bash), pero no es siempre el caso. Además se usa escribir una línea que describe el propósito del script y que está precedida por el símbolo ``#`` que indica que es un comentario
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+# Script de ejemplo para la práctica 1 de Comp. Biol
+
+echo Hello World!
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -421,12 +453,21 @@ adaptado para el curso de la Escuela de Ingeniería de Antioquia (EIA)</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
+    <a class="left-prev"
        href="intro_linux.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción a la Terminal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="variables.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introducción a la Terminal</p>
+        <p class="prev-next-title">Variables, declaraciones y loops</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -448,10 +489,9 @@ adaptado para el curso de la Escuela de Ingeniería de Antioquia (EIA)</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Curso de Bioinformática</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-este-documento">Cómo leer este documento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de Texto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hacer-un-archivo-ejecutable">Hacer un archivo ejecutable</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
