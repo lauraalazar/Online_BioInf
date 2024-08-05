@@ -163,6 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción a Python y Biopython</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Taller1.html">Taller Evaluable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_seq.html">Manejo de Secuencias con python</a></li>
 </ul>
 
     </div>
@@ -361,7 +362,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secuencias">Secuencias</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formato-fasta-de-secuencias">Formato Fasta de Secuencias</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-virus-covid-19">El virus COVID-19</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escribir-secuencias-en-un-archivo">Escribir secuencias en un archivo</a></li>
 </ul>
 </li>
 </ul>
@@ -506,103 +506,6 @@ Ahora vamos a iterar sobre las secuencias del archivo “Sars_cov.pep.fa” y a 
 </div>
 </div>
 </div>
-<p>La descripción tiene mucha información importante pero esta no es muy clara, entonces vamos a extraer el fragmento que contiene la función, vamos a dividir la descripción en items, utilizando la función <code class="docutils literal notranslate"><span class="pre">split.()</span></code> y luego le damos el número (<strong>index</strong>) del item de interés <code class="docutils literal notranslate"><span class="pre">[]</span></code> (es el item 9 pero python comienza a contar desde 0, entonces es el 8)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">prot_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">),</span><span class="n">record</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">8</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="escribir-secuencias-en-un-archivo">
-<h2>Escribir secuencias en un archivo<a class="headerlink" href="#escribir-secuencias-en-un-archivo" title="Permalink to this heading">#</a></h2>
-<p>Con frecuencia estamos interesados en un subconjunto de los genes o proteínas para realizar un análisis a profundidad de ellos. En este caso vamos a seleccionar las glicoproteínas que son aquellas que codifican la espícula. Esta espícula (“spike”) es la encargada de mediar la entrada del virus hacia el hospedero y tiene una tasa de mutación mas alta que los otros genes, lo que presumiblemente dió origen a cepas mas virulentas (<a class="reference external" href="https://en.wikipedia.org/wiki/Coronavirus_spike_protein">https://en.wikipedia.org/wiki/Coronavirus_spike_protein</a>)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="kn">from</span> <span class="nn">Bio.SeqRecord</span> <span class="kn">import</span> <span class="n">SeqRecord</span>
-
-<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">prot_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">9</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;glycoprotein&quot;</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Hasta aquí hemos seleccionado las secuencias que contienen el término “glycoprotein”. Para escribirlas en un archivo en un formato adecuado de secuencias vamos a utilizar la función de biopython  <code class="docutils literal notranslate"><span class="pre">Bio.SeqIO.write()</span></code> y a cambiar un poco el estilo.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glycoproteins</span> <span class="o">=</span> <span class="p">(</span><span class="n">record</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">prot_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">9</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;glycoprotein&quot;</span><span class="p">))</span>
-<span class="n">SeqIO</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">glycoproteins</span><span class="p">,</span> <span class="s2">&quot;sars_covid19_glycoproteins.fa&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Donde eperas que esté el archivo? Chequéalo mirando el directorio actual (“get current working directory”). Verifica que si se haya generado con el nombre y formatos correctos, y la información que deseamos que contenga.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Por último, vamos a escribir los comando que utilizamos en un script de python (con extensión “.py”) para dejar registro de lo que hicimos y pueda ser repetible</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/local/bin/</span>
-
-<span class="c1"># Script por Laura Salazar Jaramillo</span>
-<span class="c1"># Genera un subconjunto de glicoproteinas de SARS-covid 19</span>
-
-<span class="c1"># Importamos las librerías necesarias</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="kn">import</span> <span class="nn">Bio</span>
-<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
-<span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-
-<span class="c1"># Archivos de entrada (inputs)</span>
-<span class="n">dna_file</span> <span class="o">=</span> <span class="s2">&quot;/home/lsalazarj/bicomp2024/Sars_cov.dna.fa&quot;</span>
-<span class="n">prot_file</span> <span class="o">=</span> <span class="s2">&quot;Sars_cov.prot.fa&quot;</span>
-
-
-<span class="c1"># Listamos el tamano del genoma</span>
-<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">dna_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La longitud en nc del genoma es:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">))</span>
-
-<span class="c1"># Listamos los id y longitudes de las proteínas</span>
-<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">prot_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">),</span><span class="n">record</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">9</span><span class="p">])</span>
-
-<span class="c1"># Seleccionamos las glicoproteínas y las guardamos en un archivo aparte</span>
-<span class="n">glycoproteins</span> <span class="o">=</span> <span class="p">(</span><span class="n">record</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">prot_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">9</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;glycoprotein&quot;</span><span class="p">))</span>
-<span class="n">SeqIO</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">glycoproteins</span><span class="p">,</span> <span class="s2">&quot;sars_covid19_glycoproteins.fa&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Este script se puede ejecutar en la terminal escribiendo los comandos</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">glycoproteins</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">glycoproteins</span><span class="o">.</span><span class="n">out</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Alternativamente se pueden cambiar los permisos del archivo (chmod +x <a class="reference external" href="http://glycoproteins.py">glycoproteins.py</a>) y ejecutarlo</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">glycoproteins</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 
@@ -678,7 +581,6 @@ Ahora vamos a iterar sobre las secuencias del archivo “Sars_cov.pep.fa” y a 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secuencias">Secuencias</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formato-fasta-de-secuencias">Formato Fasta de Secuencias</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-virus-covid-19">El virus COVID-19</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escribir-secuencias-en-un-archivo">Escribir secuencias en un archivo</a></li>
 </ul>
 </li>
 </ul>
