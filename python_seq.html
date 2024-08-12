@@ -662,6 +662,39 @@ Vamos a utilizar las secuencias de Citocromo B descargadas previamente para repa
 </ol>
 </li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">CytB_seqs</span>
+<span class="n">cd</span> <span class="n">CytB_seqs</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">laura</span><span class="o">/</span><span class="n">docencia</span><span class="o">/</span><span class="n">eia</span><span class="o">/</span><span class="n">bioinfo</span><span class="o">/</span><span class="n">Online_BioInf</span><span class="o">/</span><span class="n">talleres</span><span class="o">/</span><span class="n">CytBDNA</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">laura</span><span class="o">/</span><span class="n">docencia</span><span class="o">/</span><span class="n">eia</span><span class="o">/</span><span class="n">bioinfo</span><span class="o">/</span><span class="n">Online_BioInf</span><span class="o">/</span><span class="n">talleres</span><span class="o">/</span><span class="n">CytBProt</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Bio</span>
+<span class="kn">from</span> <span class="nn">Bio.SeqRecord</span> <span class="kn">import</span> <span class="n">SeqRecord</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+
+<span class="n">cytdna_file</span> <span class="o">=</span> <span class="s2">&quot;CytBDNA.txt&quot;</span>
+<span class="n">cytprot_file</span> <span class="o">=</span> <span class="s2">&quot;CytBProt.txt&quot;</span>
+
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">cytdna_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">cytprot_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">cytdna_file</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
+        <span class="n">mRNA</span><span class="o">=</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="n">mRNA</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="n">mRNA</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;Vertebrate Mitochondrial&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
