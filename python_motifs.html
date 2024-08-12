@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Manejo de Secuencias con python &#8212; Material para el curso de Bioinformatica-EIA</title>
+    <title>Ejercicio de manejo de Secuencias con python &#8212; Material para el curso de Bioinformatica-EIA</title>
   
   
   
@@ -61,10 +61,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'python_seq';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_motifs';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Taller Evaluable" href="Taller1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,14 +154,14 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro_linux.html">Introducción a la Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exscripts.html">Scripts Ejecutables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables, declaraciones y loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python.html">Introducción a Python y Biopython</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Taller1.html">Taller Evaluable</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Manejo de Secuencias con python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_seq.html">Manejo de Secuencias con python</a></li>
 </ul>
 
     </div>
@@ -234,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython_seq.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython_motifs.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -264,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/python_seq.ipynb" target="_blank"
+      <li><a href="_sources/python_motifs.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -346,7 +345,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Manejo de Secuencias con python</h1>
+    <h1>Ejercicio de manejo de Secuencias con python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,8 +367,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="manejo-de-secuencias-con-python">
-<h1>Manejo de Secuencias con python<a class="headerlink" href="#manejo-de-secuencias-con-python" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ejercicio-de-manejo-de-secuencias-con-python">
+<h1>Ejercicio de manejo de Secuencias con python<a class="headerlink" href="#ejercicio-de-manejo-de-secuencias-con-python" title="Permalink to this heading">#</a></h1>
 <p>Una vez instalados python y biopython, vamos a utilizarlos para manejar las secuencias utilizando el el archivo de covid19 descargado previamente. Para comenzar, vamos s utilizar algunos de los ejemplos de la introducción a linux para entender cómo hacerlos con python. Cada vez que entramos a la terminal debemos activa el entorno de conda que creamos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -379,15 +378,39 @@ document.write(`
 </div>
 </div>
 </div>
-<p>En python, un texto es una secuencia de cadena literal (<em>string</em>) y se puede manipular fácilmente, por ejemplo concatenando caracteres:</p>
+<p>En python se pueden buscar patrones de texto utilizando <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, que es una función (note el parentésis) que busca la primera coincidencia con un patrón especificado. Haremos uso de esta función para busucar patrones de secuencias llamados <em>motifs</em>. Estos son…</p>
+<p>En la sesión anterior definimos el codón de inicio y un loop para buscarlo (ver <em>Manejo de secuencias con python</em>). Podemos simplificar esta búsqueda utilizando la función <code class="docutils literal notranslate"><span class="pre">re.search()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># El comando print imprime el texto entre comillas</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># llamamos las librerías</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">Bio</span>
+<span class="kn">from</span> <span class="nn">Bio.SeqRecord</span> <span class="kn">import</span> <span class="n">SeqRecord</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
 
-<span class="c1"># El mismo resultado se obtiene sumando las palabras y concatenando el texto</span>
-<span class="n">helloworld</span> <span class="o">=</span> <span class="s1">&#39;Hello, &#39;</span> <span class="o">+</span> <span class="s1">&#39;world!&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">helloworld</span><span class="p">)</span>
+<span class="c1"># define una variable para abrir el archivo fasta como input.</span>
+<span class="c1"># escribo la ruta completa para no tener problemas localizando el input </span>
+<span class="n">dna_file</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;/Users/laura/docencia/eia/bioinfo/clase_python/Sars_cov.dna.fa&#39;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
+
+<span class="c1"># define una variable para la secuencia completa del covid</span>
+<span class="n">covid19_seq</span> <span class="o">=</span> <span class="n">dna_file</span><span class="o">.</span><span class="n">seq</span>
+
+<span class="c1"># define la secuencia a buscar</span>
+<span class="n">start_codon</span> <span class="o">=</span> <span class="s1">&#39;AUG&#39;</span> 
+
+<span class="c1"># Búsqueda en DNA</span>
+<span class="n">covid19_seq</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">start_codon</span><span class="p">)</span>
+
+<span class="c1"># Búsqueda en el transcrito</span>
+<span class="n">covid19_mRNA</span><span class="o">=</span><span class="n">covid19_seq</span><span class="o">.</span><span class="n">transcribe</span><span class="p">()</span>
+<span class="n">start_pos</span><span class="o">=</span><span class="n">covid19_mRNA</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">start_codon</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_pos</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">covid19_mRNA</span><span class="p">),</span> <span class="mi">3</span><span class="p">):</span>
+<span class="c1">#    print(i)</span>
+    <span class="n">codon</span> <span class="o">=</span> <span class="n">covid19_mRNA</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span>    
+    <span class="k">if</span> <span class="n">codon</span> <span class="o">==</span> <span class="n">start_codon</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">codon</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -609,21 +632,7 @@ La <code class="docutils literal notranslate"><span class="pre">f</span></code> 
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-info">
-<b>Ejercicio con secuencias de Citocromo B</b> 
-Vamos a utilizar las secuencias de Citocromo B descargadas previamente para repasar el manejo de secuencias utilizando python. 
-1. Cree una carpeta que se llame CytB_seqs
-2. Entre a la carpeta
-3. Copie desde allí las secuencias de Citocromo (o descárguelas nuevamente)
-4. Active los entornos de conda
-5. Comience Python
-6. Llame las librerías
-7. Defina los archivos input
-8. Realice un loop sobre las secuencias de DNA para imprimir los nombres de los ID y los tamaños del gen: qué tanto difieren?
-9. Repita los putnos 7 y 8 pero con el archivo de proteínas: qué tanto difieren éstas?
-10. Ahora viene el reto de la clase: Utilice las secuencias de DNA para traducir las secuencias y guarde este archvivo. 
-11. Compare las secuencias obtenidas con las del archivo de las proteínas: son iguales?
-12. Utilice la sección 3.8 del tutorial de [Biopython](https://biopython.org/DIST/docs/tutorial/Tutorial.html) y repita el punto 10 </div></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -657,15 +666,6 @@ Vamos a utilizar las secuencias de Citocromo B descargadas previamente para repa
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="Taller1.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Taller Evaluable</p>
-      </div>
-    </a>
 </div></div>
   
 </div>
