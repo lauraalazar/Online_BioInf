@@ -1,0 +1,873 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Alienamientos &#8212; Material para el curso de Bioinformatica-EIA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'alineamientos';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Manejo de Secuencias con python" href="python_seq.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Curso de Bioinformática
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_linux.html">Introducción a la Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exscripts.html">Scripts Ejecutables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables, declaraciones y loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Introducción a Python y Biopython</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Taller1.html">Taller Evaluable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_seq.html">Manejo de Secuencias con python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Alienamientos</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Falineamientos.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/alineamientos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Alienamientos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Alienamientos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#similitud-entre-secuencias">Similitud entre secuencias</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamiento-por-pares">Alineamiento por pares</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamiento-global">Alineamiento Global</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-needlemanwunsch">Algoritmo Needleman–Wunsch</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamiento-local-smith-waterman">Alineamiento Local: Smith-Waterman</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-sustitucion">Matrices de sustitución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamientos-multiples">Alineamientos múltiples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="alienamientos">
+<h1>Alienamientos<a class="headerlink" href="#alienamientos" title="Permalink to this heading">#</a></h1>
+<p>En el centro de la biología esta la búsqueda de similitudes entre las diferentes formas de vida y la representación de estas variaciones. Los árboles filogenéticos son una representación muy útil de estas diferencias</p>
+<img src="darwin_tree.jpeg"/><p>La idea de una descendencia con modificiaciones de Darwin implica que las similitudes existen entre orgnaismos porque ellos comparten un ancestro común. Es decir que las similitudes se pueden utilizar para hacer inferencias filogenéticas sobre las relaciones evolutivas entre organismos. Por lo tanto, un árbol filogenético es una hipótesis sobre relaciones ancestrales. A los caracteres similares que comparten un ancestro común se les llama “caracteres homologos”. Pero no todas las similitudes son homólogas.</p>
+<img src="homol_anal.jpeg"/><p>Tradicionalmente los árboles filogenéticos se construyen con caracteres fenotípicos, y estos continúan siendo importantes para muchos rasgos morfológicos, ecológicos, de comportamiento y para datos fósiles. Actualmente muchos árboles filogenéticos se construyen utilizando secuencias de nucelótidos y aminoácidos. Aquí entonces tenemos similitud entre secuencias que pueden, <strong>pero no necesariamente</strong> reflejan la similitud entre las especies.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="similitud-entre-secuencias">
+<h1>Similitud entre secuencias<a class="headerlink" href="#similitud-entre-secuencias" title="Permalink to this heading">#</a></h1>
+<p>Dadas tres secuencias:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>ACGTG</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>ACGTC</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>ACGCC</p></li>
+</ol>
+</li>
+</ul>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Escriba a "papel y lápiz" cómo sería la hipótesis de relación ancestral entre estas secuencias. Cuantos alineamientos obtuvo?
+</div><p>Ahora lo haremos con python. Entramos a Apolo y activamos los ambientes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">biopython</span>   <span class="c1"># recuerde que su ambiente de conda puede tener un nombre diferente</span>
+<span class="n">python</span>                      <span class="c1"># recuerde utilizar la versión de python donde instaló biopython</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Llamamos las librerías de bipython</span>
+<span class="kn">import</span> <span class="nn">Bio</span>
+<span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+
+<span class="c1"># Definimos las secuencias con la función Seq de biopython</span>
+<span class="n">seq1</span><span class="o">=</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACGTG&quot;</span><span class="p">)</span> 
+<span class="n">seq2</span><span class="o">=</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACGTC&quot;</span><span class="p">)</span>
+<span class="n">seq3</span><span class="o">=</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;ACGCC&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="alineamiento-por-pares">
+<h2>Alineamiento por pares<a class="headerlink" href="#alineamiento-por-pares" title="Permalink to this heading">#</a></h2>
+<p>Dos secuencias, seq1 y seq2, en qué se parecen y diferencian? Como cuantificar las diferencias y similitudes?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Align</span> <span class="c1">#importa la librería para alineamientos</span>
+
+<span class="n">aligner</span> <span class="o">=</span> <span class="n">Align</span><span class="o">.</span><span class="n">PairwiseAligner</span><span class="p">()</span> <span class="c1">#esta función alinea por pares</span>
+<span class="n">alignments1_2</span> <span class="o">=</span> <span class="n">aligner</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">)</span> <span class="c1"># LISTA de alineamientos posibles entre las dos secuencias</span>
+<span class="k">for</span> <span class="n">alignment</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">alignments1_2</span><span class="p">):</span> <span class="c1"># </span>
+<span class="c1">#    print(&quot;Score = %.1f:&quot; % alignment.score)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alignment</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cuantos tipos de alineamientos encontró? Cual es mejor?</p>
+<ul class="simple">
+<li><p>Opción1 <strong>Sustitución</strong></p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>seq1</p></th>
+<th class="head text-center"><p>A</p></th>
+<th class="head text-center"><p>C</p></th>
+<th class="head text-center"><p>G</p></th>
+<th class="head text-center"><p>T</p></th>
+<th class="head text-center"><p>G</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(*\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>seq2</p></td>
+<td class="text-center"><p>A</p></td>
+<td class="text-center"><p>C</p></td>
+<td class="text-center"><p>G</p></td>
+<td class="text-center"><p>T</p></td>
+<td class="text-center"><p>C</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Opción2 <strong>Indel</strong></p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>seq1</p></th>
+<th class="head text-center"><p>A</p></th>
+<th class="head text-center"><p>C</p></th>
+<th class="head text-center"><p>G</p></th>
+<th class="head text-center"><p>T</p></th>
+<th class="head text-center"><p>G</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(-\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(|\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>seq2</p></td>
+<td class="text-center"><p>A</p></td>
+<td class="text-center"><p>C</p></td>
+<td class="text-center"><p>G</p></td>
+<td class="text-center"><p>T</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td class="text-center"><p>C</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Match score = 1</p></li>
+<li><p>Posiciones pareadas = 4</p></li>
+<li><p>Score del alineamiento = 4</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">alignment</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">alignments1_2</span><span class="p">):</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">alignment</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alignment</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero será igual de probable tener una mutación de <strong>sustitución</strong> a un <strong>indel</strong> ?</p>
+<ul class="simple">
+<li><p>Mismatch (no pareados): -1</p></li>
+<li><p>Indel: -1</p></li>
+<li><p>Score Opción1: 4-1 = 3</p></li>
+<li><p>Score Opción2: 4-2 = 2</p></li>
+</ul>
+<p>Por lo tanto escogeríamos el alineamiento de la Opción 1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligner</span><span class="o">.</span><span class="n">match_score</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">aligner</span><span class="o">.</span><span class="n">mismatch_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">aligner</span><span class="o">.</span><span class="n">open_gap_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">alignment</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">alignments1_2</span><span class="p">):</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">alignment</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alignment</span><span class="o">.</span><span class="n">score</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="alineamiento-global">
+<h3>Alineamiento Global<a class="headerlink" href="#alineamiento-global" title="Permalink to this heading">#</a></h3>
+<p>Supongamos que tenemos dos secuencias con diferente longitud (que es lo mas frecuente):</p>
+<ul class="simple">
+<li><p>seq1=AGCC</p></li>
+<li><p>seq2=AAACC</p></li>
+</ul>
+<p>Cómo alinearía estas dos secuencias y donde pondría los gaps?</p>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Antes de comenzar, intente pensar a "papel y lápiz" en las posibles combinaciones, donde se pondrían los *mismatch* y *gaps*
+</div><section id="algoritmo-needlemanwunsch">
+<h4>Algoritmo Needleman–Wunsch<a class="headerlink" href="#algoritmo-needlemanwunsch" title="Permalink to this heading">#</a></h4>
+<p>Fue uno de los primeros algoritmos usados para decidir el mejor alineamiento de una secuencia completa. Funciona asignándole un score a <em>cada uno de los posibles</em> alineamientos, y escogiendo el que tenga el mayor valor. En este algoritmo se asignan los siguiente scores:</p>
+<ul class="simple">
+<li><p>match = 1</p></li>
+<li><p>mismatch = -1</p></li>
+<li><p>gap = -2</p></li>
+</ul>
+<p>Para entender el algoritmo vamos a empezar con una matriz que tiene una secuencia en cada eje para calcular <em>todas</em> las posibles combinaciones, en forma de matriz (Tomado de Needleman–Wunsch algorithm - Wikipedia)</p>
+<img src="NW1.png"/><p>La idea es calcular cada uno de los cuadros, lo cual corresponde a todas las posibilidades de alineamiento en cada posición, y atribuirle un valor para entender cual es la mejor solución.
+Para cualquier posición i y j, pueden pasar 3 cosas: (a) i y j están alienados; (b) i está alineado con un gap en la secuencia 2; o (c) j está alineado con un gap en la secuencia 1. El score posible mas alto en la posición H(i, j) está definido por la siguiente regla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>H(i,j) = Max H(i - 1, j - 1) + Sij (diagonal)
+             H(i, j - 1) + g (horizontal)
+             H(i-1, j) + g (vertical)
+
+Vamos a asumir el caso más simple en el cual la penalidad por sustitución ($S_{ij}$) y gap ($g$) es igual a -1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los pasos del algoritmo son los siguientes</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Defina H(0,0) = 0 y dele a todos los campos el producto de la posición por el valor del gap.</p></li>
+</ol>
+</li>
+</ul>
+<img src="NW2.png"/>
+<ul class="simple">
+<li><ol class="arabic simple" start="2">
+<li><p>Llene los valores de H matrix usando la regla y empezando desde H(1,1).</p></li>
+</ol>
+</li>
+</ul>
+<img src="NW3.png"/>
+<p>Para calcular el valor “x” de H(1,1), seleccione el máximo de tres opciones:</p>
+<ul class="simple">
+<li><p>i. Si tomamos un paso de la diagonaldonde el valor es 0, los dos nucleótidos (G) estarían alineados. El valor sería 0+1 = 1</p></li>
+<li><p>ii. Si tomamos un paso horizontal, vendríamos desde H(1,0) y se tomaría como un <em>indel</em> por lo que el valor es -1 + (-1) = -2</p></li>
+<li><p>iii.  Si tomamos un paso vertical, vendríamos desde H(0,1) donde el valor es -1</p></li>
+<li><p>iv. Escoja el mayor de estos valores y dibuje una flecha para señalar la ruta.</p></li>
+</ul>
+<img src="NW4.png"/>
+<p>Continuamos hacia H(1,2) y H(2,1) donde la diagonal para “X” y “Y” es un mismatch::</p>
+<ul class="simple">
+<li><p>i. Vertical de X : (−2)+(−1) = (−3)</p></li>
+<li><p>ii. Horizontal de X : (+1)+(−1) = (0)</p></li>
+<li><p>iii. Diagonal de X : (−1)+(−1) = (−2)</p></li>
+<li><p>iv. Vertical de Y : (1)+(−1) = (0)</p></li>
+<li><p>v. Horizontal de X : (−2)+(−1) = (−3)</p></li>
+<li><p>vi. Diagonal de X : (−1)+(−1) = (−2)</p></li>
+</ul>
+<p><img src="NW5.png"/> <img src="NW6.png"/></p>
+<ul class="simple">
+<li><ol class="arabic simple" start="3">
+<li><p>Llene sucesivamente los valores del matriz</p></li>
+</ol>
+</li>
+</ul>
+<img src="Needleman-Wunsch_pairwise_sequence_alignment.png"/><p>Note que en algunos campos los pasos de la diagonal, horizontal o vertical producen el mismo score mas alto. En estos casos, hay mas de una posibilidad de alineamientos óptimos y se deben tener en cuenta estas rutas.</p>
+<ul class="simple">
+<li><ol class="arabic simple" start="4">
+<li><p>Finalmente, reconstruimos el alineamiento usando la ruta inversa en la matriz, comenzamos en la esquina inferior derecha. Una flecha en diagonal significa un match entre secuencias. Una flecha hacia arriba o a la derecha significa introducir un gap horizontal o vertical, respectivamente.</p></li>
+</ol>
+</li>
+</ul>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Chequee este mismo alineamiento en bipython. Defina las dos secuencias, los gaps y alinee las secuencias
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Align</span>
+<span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+
+<span class="c1"># Defina las secuencias</span>
+<span class="n">seq1</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GATTACA&quot;</span><span class="p">)</span>
+<span class="n">seq2</span> <span class="o">=</span> <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;GCATGCG&quot;</span><span class="p">)</span>
+
+<span class="c1"># Defina el tipo de alineamiento (aquí &quot;pairwise&quot;)</span>
+<span class="n">aligner</span> <span class="o">=</span> <span class="n">Align</span><span class="o">.</span><span class="n">PairwiseAligner</span><span class="p">()</span>
+
+<span class="c1"># Defina las penalidades </span>
+<span class="n">aligner</span><span class="o">.</span><span class="n">match_score</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">aligner</span><span class="o">.</span><span class="n">mismatch_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">aligner</span><span class="o">.</span><span class="n">open_gap_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Gap opening penalty</span>
+<span class="n">aligner</span><span class="o">.</span><span class="n">extend_gap_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Gap extension penalty</span>
+
+<span class="c1"># Realice el alineamiento con las dos secuencias</span>
+<span class="n">alignments</span> <span class="o">=</span> <span class="n">aligner</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">)</span>
+
+<span class="c1"># Revise los alineamientos (cuantos?)</span>
+<span class="k">for</span> <span class="n">alignment</span> <span class="ow">in</span> <span class="n">alignments</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alignment</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alignment</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="alineamiento-local-smith-waterman">
+<h3>Alineamiento Local: Smith-Waterman<a class="headerlink" href="#alineamiento-local-smith-waterman" title="Permalink to this heading">#</a></h3>
+<p>Con frecuencia las secuencias contienen diferentes longitudes, pero dominios que son conservados porque son importantes para ciertas funciones. Los alineamientos locales sirven para identificar sub-regiones similares. Smith &amp; Waterman desarrollaron un algoritmo dinámico local que se parece al de  Needleman-Wunsch, excepto que se dibuja una flecha solo si el valor es positivo. Si el máximo posible es negativo, se le asigna un 0 y no se dibuja ninguna</p>
+<p>Ejemplo:</p>
+<ul class="simple">
+<li><p>seq1 : ACC</p></li>
+<li><p>seq2: AAACCGT</p></li>
+</ul>
+<p><u> Scores</u></p>
+<ul class="simple">
+<li><p>gap=-2</p></li>
+<li><p>mismatch=-1</p></li>
+<li><p>match=1</p></li>
+</ul>
+<img src="matrix1_SW.png"/><img src="matrix2_SW.png" /><p>El procedimiento inverso para alineaientos locales comienza con el score mas alto y sigue la ruta en reversa hasta el campo que contenga un  0 y para. La celda con el H mas alto no tiene que estar en la esquina inferior derech[porque aquí se busca el sub-alineamiento más óptimo, el cual puede estar en el medio</p>
+<img src="matrix3_SW.png" /></section>
+<section id="matrices-de-sustitucion">
+<h3>Matrices de sustitución<a class="headerlink" href="#matrices-de-sustitucion" title="Permalink to this heading">#</a></h3>
+<p>Desde un punto de vista fisico-químico, no todas las sustituciones son igualmente probables. En el caso de los nucleótidos, las transiciones (A-G, T-C) son mas frecuentes que las transversiones (A↔C, A↔T, C↔G, and G↔T).</p>
+<p>Ejemplo de Modelo de sustitución K80 de Kimura
+<img src="All_transitions_and_transversions.png" width=500 height=500 /></p>
+<p>En el caso de los amino ácidos, existen sesgos al nivel de mutacions o de selección natural que hacen algunas sustitutciones mas probable que otras. Primero, algunos amino ácidos tienen mas probabilidad de mutar a otros porque sus codone son mas similares en código genético. Segundo. algunas sutituciones se fijan mejor durante la evolución porque los amino ácidos comparten propiedades fisico-químicas similares. Estas diferencias tratan de reflejarse en las matrices de sustitutción</p>
+<p>Ejemplo de Matriz <a class="reference external" href="https://es.wikipedia.org/wiki/BLOSUM">Blosum62</a></p>
+<img src="Blosum62-dayhoff-ordering.png" width=400 height=400 /><div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Use las secuencias de la phosphatasa alkalina de E. coli y alinee tanto los nucleótidos como los amino acidos de $wt$ con $alpha$ y con $beta$
+</div></section>
+<section id="alineamientos-multiples">
+<h3>Alineamientos múltiples<a class="headerlink" href="#alineamientos-multiples" title="Permalink to this heading">#</a></h3>
+<p>Con frecuencia estamos interesados en comparar mas de dos secuencias. Los alineamiento múltiples contienen mas información sobre sitios conservados que pueden ser mas fácil de identificar. Al mismo tiempo son computacionalmente mucho mas complejos y el tiempo computación incrementa exponencialmente. La aproximación mas usada es alinear fragmentos por similitud, y progresivamente construir alineamientos locales por pares, tomando primero las mas similares, formando “clusters jerárquicos”.</p>
+<p>Vamos a tomar las secuencias de proteínas descargadas previamente de NCBI y a alinearlas utilizando uno de los programas, entre (muchos)[<a class="reference external" href="https://www.ebi.ac.uk/Tools/msa/">https://www.ebi.ac.uk/Tools/msa/</a>] de alineamiento: (ClustalW)[<a class="reference external" href="https://www.ebi.ac.uk/Tools/msa/clustalo/">https://www.ebi.ac.uk/Tools/msa/clustalo/</a>].</p>
+<p>Una vez copiados estos archivos en el directorio de Apolo, entramos a nuestra cuenta y creamos un ambiente para instalar clustal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">filogenia</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">filogenia</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">clustalw</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">iqtree</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Este paso de instalación solo se realiza una vez por programa. Una vez instalado, se activa</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">filogenia</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora vamos a alinear las secuencias de Citocromo B. Los (Citocromos)[<a class="reference external" href="https://es.wikipedia.org/wiki/Citocromo">https://es.wikipedia.org/wiki/Citocromo</a>] son proteínas de membrana que contienen grupos hemo, los cuales llevan a cabo las reacciones de reducción/oxidación por medio del transporte de electrones. En Eucariotas los citrocromos se encuentran en la membrana interna de la mitocondria. El nivel de consrvación de sus secuencias los hace marcadores idóneos para el análisis filogenético entre especies.</p>
+<p>Este archivo contiene la secuencia de amino acidos de diferentes proteínas de citocromo B del genoma de la mitocondria de 16 especies de vertebrados en formato “fasta”. Descargue las secuencias (vía <code class="docutils literal notranslate"><span class="pre">wget</span></code> o <code class="docutils literal notranslate"><span class="pre">curl</span></code>, para su uso revise el capítulo “intro linux”) en Apolo localizadas en:
+<a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBProt.txt">https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBProt.txt</a>
+<a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBDNA.txt">https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBDNA.txt</a></p>
+<p>El comando para alinear con clustalw es el siguiente (recordemos que en Apolo este comando hay que escribirlo dentro de un script <a class="reference external" href="http://slurm.sh">slurm.sh</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clustalw2</span> <span class="o">-</span><span class="n">infile</span><span class="o">=</span><span class="n">CytBProt</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="n">protein</span> <span class="o">-</span><span class="n">output</span><span class="o">=</span><span class="n">phylip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Escriba este comando desde un script "slurm" y ejecútelo
+</div><p>Una vez termina de ejecutar el trabajo, se produce 1 archivo <em>.phy</em> que contiene el alineamiento, y uno .dnd que contiene un <em>árbol</em>. Este árbol está en formato (Newick)[<a class="reference external" href="https://en.wikipedia.org/wiki/Newick_format">https://en.wikipedia.org/wiki/Newick_format</a>], inspecciónelo (usando <code class="docutils literal notranslate"><span class="pre">less</span></code> o <code class="docutils literal notranslate"><span class="pre">cat</span></code>).</p>
+<p>Ahora vamos a utilizar (iqtree)[<a class="reference external" href="http://www.iqtree.org/doc/Quickstart">http://www.iqtree.org/doc/Quickstart</a>] para visualizar el árbol (recordemos que en Apolo este comando hay que escribirlo dentro de un script <a class="reference external" href="http://slurm.sh">slurm.sh</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iqtree</span> <span class="o">-</span><span class="n">s</span> <span class="n">CytBProt</span><span class="o">.</span><span class="n">phy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Repita el mismo proceso de alineamiento y generación de árbol con el archivo de nucleótidos de Citocromo B. Ve alguna diferencia con respecto a las proteínas, por ejemplo en la topología del árbol? A qué cree que se deben las diferencias?
+</div></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="python_seq.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Manejo de Secuencias con python</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Alienamientos</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#similitud-entre-secuencias">Similitud entre secuencias</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamiento-por-pares">Alineamiento por pares</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamiento-global">Alineamiento Global</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-needlemanwunsch">Algoritmo Needleman–Wunsch</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamiento-local-smith-waterman">Alineamiento Local: Smith-Waterman</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-sustitucion">Matrices de sustitución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamientos-multiples">Alineamientos múltiples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Laura Salazar Jaramillo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
