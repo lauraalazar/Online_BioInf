@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Herraminetas de NCBI &#8212; Material para el curso de Bioinformatica-EIA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ncbi&blast';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Alienamientos" href="alineamientos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Curso de Bioinformática
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_linux.html">Introducción a la Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exscripts.html">Scripts Ejecutables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables, declaraciones y loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Introducción a Python y Biopython</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Taller1.html">Taller Evaluable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_seq.html">Manejo de Secuencias con python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alineamientos.html">Alienamientos</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Herraminetas de NCBI</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fncbi&blast.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ncbi&blast.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Herraminetas de NCBI</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Herraminetas de NCBI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-de-secuencias">Búsqueda de secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-explorador">Por explorador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desde-script-de-python">Desde script de python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-por-similitud-molecular">Búsqueda por similitud molecular</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-conceptos-clave-de-similitud">Repaso de conceptos clave de similitud</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-local-alignment-search-tool-blast">Basic Local Alignment Search Tool (BLAST)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-blast">Tipos de BLAST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-value-expectation-values">E-value (Expectation-values)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-de-blast-en-la-web">Búsqueda de BLAST en la web</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="herraminetas-de-ncbi">
+<h1>Herraminetas de NCBI<a class="headerlink" href="#herraminetas-de-ncbi" title="Permalink to this heading">#</a></h1>
+<p>The National Center for Biotechnology Information (NCBI), <a class="reference external" href="https://ncbi.nlm.nih.gov/">https://ncbi.nlm.nih.gov/</a>, es una de las colecciones de bases de datos mas importantes. Contiene secuencias de DNA, proteínas, datos taxonómicos, publicaciones etc.</p>
+<section id="busqueda-de-secuencias">
+<h2>Búsqueda de secuencias<a class="headerlink" href="#busqueda-de-secuencias" title="Permalink to this heading">#</a></h2>
+<p>Escoja la base de datos “Protein” y escriba en la barra “Cytochrome B Homo sapiens neanderthalensis”. Escoja la proteína de referencia (RefSeq Proteins) y copie el ID de esta proteína</p>
+<section id="por-explorador">
+<h3>Por explorador<a class="headerlink" href="#por-explorador" title="Permalink to this heading">#</a></h3>
+<p>Primero vamos a explorar la base de datos de NCBI con “clicks” y después los haremos desde un script de python. Entre a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/">https://www.ncbi.nlm.nih.gov/</a> y despliegue la pestaña “All Databases” para ver las opciones.</p>
+</section>
+<section id="desde-script-de-python">
+<h3>Desde script de python<a class="headerlink" href="#desde-script-de-python" title="Permalink to this heading">#</a></h3>
+<p>Ahora vamos a realizar la búsqueda por ID desde python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/local/bin/</span>
+
+<span class="c1"># Script por Laura Salazar Jaramillo</span>
+<span class="c1"># Busca la secuencia de proteinas del citocromo B de neanderthales</span>
+
+
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Entrez</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+
+<span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;laura.salazar38@eia.edu.co&quot;</span>
+
+<span class="k">with</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span>
+    <span class="n">db</span><span class="o">=</span><span class="s2">&quot;protein&quot;</span><span class="p">,</span> <span class="n">rettype</span><span class="o">=</span><span class="s2">&quot;fasta&quot;</span><span class="p">,</span> <span class="n">retmode</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;YP_002124314.2&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">seq_record</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">seq_record</span><span class="p">)</span>
+<span class="n">SeqIO</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">seq_record</span><span class="p">,</span> <span class="s2">&quot;/home/lsalazarj/bicomp2024/ncbi_blast/hsneanderthal_cytb_prot.fa&quot;</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="busqueda-por-similitud-molecular">
+<h1>Búsqueda por similitud molecular<a class="headerlink" href="#busqueda-por-similitud-molecular" title="Permalink to this heading">#</a></h1>
+<p>La búsqueda de similitudes es un primer paso para encontrar  información útil sobre funcionalidad y/o ancestría. A la hora de buscar similitud en bases de datos extensas, los algoritmos de programación dinámica (como Needleman-Wunsch y Smith-Waterman) son ineficientes. Las herramientas mas eficientes son heurísticas: “atajos” algoritmicos que no producen una solición óptima global, pero que son mucho más rápidos y eficientes. Ahora vamos a realizar la búsqueda de las secuencias mas similares de todas las disponibles en la base de datos usando Basic Local Alignment Search Tool, BLAST  (Altschul et al. 1997; Altschul et al. 1990)</p>
+<section id="repaso-de-conceptos-clave-de-similitud">
+<h2>Repaso de conceptos clave de similitud<a class="headerlink" href="#repaso-de-conceptos-clave-de-similitud" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Secuencias homólogas</strong>: similitud por ancestría común</p></li>
+<li><p><strong>Alineamiento</strong> global vs local: ordenamiento de secuencias según similitud. <strong>Global</strong>: utiliza toda la secuencia. <strong>Local</strong>: utiliza los fragmentos más similares</p></li>
+<li><p><strong>Secuencias conservadas</strong>: aquellas que comparten nucleótidos o aminoacidos en la misma posición (opuesto en divergentes)</p></li>
+<li><p><strong>Score</strong>: parámetro que indica la calidad del alineamiento</p></li>
+<li><p><strong>Dendograma</strong> (Cladograma): hipótesis sobre relación evolutiva de secuencias</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="basic-local-alignment-search-tool-blast">
+<h1>Basic Local Alignment Search Tool (BLAST)<a class="headerlink" href="#basic-local-alignment-search-tool-blast" title="Permalink to this heading">#</a></h1>
+<p>Dada una o mas secuencias problema <em>query</em> (usualmente en formato FASTA), BLAST busca regionse de apareamiento de secuencias (<em>match</em>) en un grupo de secuencias (una <em>base de datos</em>).</p>
+<p>Antes de realizar una búsqueda en BLAST, se genera un índice que consiste de <em>palabras</em> de una longitud <em>k</em>, las cuales se denominan <strong>k-mers</strong>. Éste índice se almacena en la memoria RAM del computador, así que BLAST puede ser muy rápido buscando estas palabras. Para inciar una búsqueda por similitud, el algoritmo de BLAST primero busca en la secuencia consulta (<em>query</em>). usando la base de datos indexada, las secuencias que contengan un score alto de k-mers son escogidas. De allí se realiza un alineamiento local alreadedor de estos k-mers.</p>
+<img src="I.7_1_blast_illustration.png"/><img src="blast_glossary-Image001.jpg"/><section id="tipos-de-blast">
+<h2>Tipos de BLAST<a class="headerlink" href="#tipos-de-blast" title="Permalink to this heading">#</a></h2>
+<p>De acuerdo a la búsqueda que necesitemos hay diferentes tipos de <a class="reference external" href="https://desmid.github.io/mview/manual/blast/blast2.html">blast</a>:</p>
+<ul class="simple">
+<li><p>blastn: búsqueda de nucleótidos en base de datos de nucleótidos</p></li>
+<li><p>blastp: búsqueda de proteína en base de datos de proteínas</p></li>
+<li><p>blastx: búsqueda de nucleótidos en base de datos de proteínas, traduciendo la secuencia query en diferentes marcos de lectura</p></li>
+<li><p>tblastn: búsqueda de proteínas en base de datos de nucleótidos, traduciendo los hit en diferentes marcos de lectura</p></li>
+<li><p>tblastx: búsqueda de nucleótidos en base de datos de nucleótidos, traduciendo query y hit en diferentes marcos de lectura</p></li>
+<li><p>psiblast: Position Specific Iterated-BLAST (PSI-BLAST) es basado en blastp pero utiliza los perfiles de conservación para hallar secuencias distantemente relacionadas</p></li>
+</ul>
+<img src="I.7_2_blast_types.png"/></section>
+<section id="e-value-expectation-values">
+<h2>E-value (Expectation-values)<a class="headerlink" href="#e-value-expectation-values" title="Permalink to this heading">#</a></h2>
+<p>Cuando realizamos una búsqueda por similitud, es importante identificar si la secuencia target es significativamente similar a la query. En este caso la significancia significa que el score del alineamiento (S) es mayor que uno esperado al azar. Un hit siempre va a tener algún tipo de similitud, y la probabilidad de encontrar un score alto aumenta con una secuencia query mas larga (m) y/o una base de datos mas grande (n). Para cuantificar la significancia de un hit, calculamos el E-value (E), que representa el número de hits esperados con un score mínimo de <em>S</em>, usando una secuencia query de longitud <em>m</em>, y una búsqueda aleatoria en una base de datos n (<span class="math notranslate nohighlight">\(\lamda\)</span> y K son parámetros para escalar y normalizar la base de datos y valores E):</p>
+<div class="math notranslate nohighlight">
+\[
+ E = K * m *n * e^{$\lamda$ S}
+\]</div>
+<p>Algunas reglas no formales (“rules of thumb”) que pueden servir como guía para considerar la significancia de los hit:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E-value &lt; 10e^{-100}\)</span> Secuencias idénticas. Esperarías un alineamiento largo y completo entre la secuencia de consulta y hit</p></li>
+<li><p><span class="math notranslate nohighlight">\(10e^{-50} &lt; E-value &lt; 10e^{-100}\)</span> Secuencias casi idénticas. Esperarías un fragmento largo de alineamiento entre la secuencia de consulta y hit</p></li>
+<li><p><span class="math notranslate nohighlight">\(10e^{-10} &lt; E-value &lt; 10e^{-50}\)</span> Secuencias cercanas o un <em>dominio</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(1 &lt; E-value &lt; 10e^{-6}\)</span> Podría ser un homólogo, pero es un área gris</p></li>
+<li><p><span class="math notranslate nohighlight">\(E-value &gt; 1\)</span> Las proteínas probablemente no están relacionados</p></li>
+<li><p><span class="math notranslate nohighlight">\(E-value &gt; 10\)</span> Los hits son irrelevantes o la secuencia consulta muy pequeña</p></li>
+</ul>
+</section>
+<section id="busqueda-de-blast-en-la-web">
+<h2>Búsqueda de BLAST en la web<a class="headerlink" href="#busqueda-de-blast-en-la-web" title="Permalink to this heading">#</a></h2>
+<p>Entre a <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a>. Allí verá las diferentes opciones de BLAST. Vamos a buscar las proteínas homólogas al citocromo B de <em>H. neanderthalensis</em> que descargamos.</p>
+<ol class="arabic simple">
+<li><p>Entre a <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a> y escoja la opción “Protein Blast” (porque nuestra secuencia es una proteína)</p></li>
+<li><p>En la casilla en blanco pegue el fragmento de la secuencia descargada del Citocromo B de <em>H. sapiens neanderthalensis</em></p></li>
+<li><p>Deje los parámetros por defecto y de click en “BLAST”.</p></li>
+<li><p>El resultado tabular que aparece lista los mejores hits (de toda la base de datos, si no hubo filtros)</p></li>
+<li><p>En la pestaña “Graphic Summary” verá una representación gráfica del alineamiento, donde el color rojo  muestra los <em>matches</em></p></li>
+<li><p>En la pestaña “Alignment” encontrará el alineamiento de la secuencia <em>query</em> (la que nosotros escogimos) con los mejores hits y la información del alineamiento</p></li>
+</ol>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Supongamos que debemos diseñar unos primers para identificar H. neanderthalensis. Como somos humanos y nuestras secuencias son altamente similares, estos primers deben tener suficiente especificidad para discriminar entre las dos especies. Cómo identificaría una posición idóndea para diseñar los primers? Cómo verificaría que estos primers que diseño sí amplifiquen *H. neanderthalensis* (que tengan sensibilidad) pero no amplifiquen humans (especificidad). 
+Puede diseñar los primers manualmente o ayudarse con la herramienta primerBlast: https://www.ncbi.nlm.nih.gov/tools/primer-blast/
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="alineamientos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Alienamientos</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Herraminetas de NCBI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-de-secuencias">Búsqueda de secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-explorador">Por explorador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desde-script-de-python">Desde script de python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-por-similitud-molecular">Búsqueda por similitud molecular</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-conceptos-clave-de-similitud">Repaso de conceptos clave de similitud</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-local-alignment-search-tool-blast">Basic Local Alignment Search Tool (BLAST)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-blast">Tipos de BLAST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e-value-expectation-values">E-value (Expectation-values)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-de-blast-en-la-web">Búsqueda de BLAST en la web</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Laura Salazar Jaramillo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
