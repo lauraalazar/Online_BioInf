@@ -573,8 +573,11 @@ nordic_df$area
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># opción1</span>
-<span class="n">instal</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;ape&quot;</span><span class="p">)</span>
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;ape&quot;</span><span class="p">)</span>
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;BiocManager&quot;</span><span class="p">)</span>
 <span class="c1">#opción2 (necesita tener el instalador BiocManager)</span>
+<span class="c1"># y se carga la librería BiocManager para instalar</span>
+<span class="n">library</span><span class="p">(</span><span class="n">BiocManager</span><span class="p">)</span>
 <span class="n">BiocManager</span><span class="p">::</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;ape&quot;</span><span class="p">)</span>
 <span class="n">BiocManager</span><span class="p">::</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;msa&quot;</span><span class="p">)</span>
 </pre></div>
