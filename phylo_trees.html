@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Inferencia filogenética y árboles &#8212; Material para el curso de Bioinformatica-EIA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'phylo_trees';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introducción a R" href="intro_R.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Curso de Bioinformática
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_linux.html">Introducción a la Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exscripts.html">Scripts Ejecutables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables, declaraciones y loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Introducción a Python y Biopython</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Taller1.html">Taller Evaluable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_seq.html">Manejo de Secuencias con python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alineamientos.html">Alienamientos</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ncbi%26blast.html">Herraminetas de NCBI</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="intro_R.html">Introducción a R</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Inferencia filogenética y árboles</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fphylo_trees.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/phylo_trees.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Inferencia filogenética y árboles</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-filogenetica">Inferencia Filogenética</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-distancia">Matriz de distancia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upgma-unweighted-pair-group-method-with-arithmetic-mean">UPGMA: Unweighted Pair Group Method with Arithmetic mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nj-neighbour-joining">NJ: Neighbour Joining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-distancia-entre-secuencias">Matriz de distancia entre secuencias</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="inferencia-filogenetica-y-arboles">
+<h1>Inferencia filogenética y árboles<a class="headerlink" href="#inferencia-filogenetica-y-arboles" title="Permalink to this heading">#</a></h1>
+<p>Un árbol filogenético es la representación de una hipótesis de relaciones ancestrales. En esta representación, las especies o secuencias de interés estan en las puntas (<em>tips</em>) de las ramas. El nodo donde se unen las ramas representa el ancestro común. El tiempo por lo tanto va desde el ancestro común hacia las puntas, en la siguiente figura el tiempo sería el eje horizontal x</p>
+<img src="Anatomy_tree.png"/><section id="inferencia-filogenetica">
+<h2>Inferencia Filogenética<a class="headerlink" href="#inferencia-filogenetica" title="Permalink to this heading">#</a></h2>
+<p>El cálculo de las distancias y el orden de agrupamiento es la fuente para realizar una inferencia filogenética. Primero se utilizan métodos de agrupamiento (<em>cluster</em>) basados en una <strong>matriz de distancia</strong>. Esta matriz es calculada a partir de una medida de similitud (por ejemplo entre morfologías o un alineamiento). Este primer agrupamiento no agarantizan una solución óptima, así que en segundo lugar se busca el mejor árbol. Vamos a ver aquí dos métodos: el de parsimonia y el d maximum likelihood. Los ejemplos en R han sido tomados del siguiente tutorial: <a class="reference external" href="https://rpubs.com/mvillalobos/L01_Phylogeny">https://rpubs.com/mvillalobos/L01_Phylogeny</a>.</p>
+<p>Vamos a ver primero como generar un árbol a partir de distancias y luego volveremos al cálculo de la matriz de distancia apartir de un alineamiento</p>
+</section>
+<section id="matriz-de-distancia">
+<h2>Matriz de distancia<a class="headerlink" href="#matriz-de-distancia" title="Permalink to this heading">#</a></h2>
+<p>La matriz de distancia, <em>d</em> es simétrica ya que la distancia de <em>i</em> a <em>j</em> es igual que la de <em>j</em> a <em>i</em> y puede ser calculada con diferentes métodos. Por ejemplo <em>d</em> puede ser el número de diferencias morfológicas o posiciones que no hacen match.</p>
+<p>La matriz de distancia es el input para los algoritmos de agrupamiento (clustering). Estos funcionan en general de la siguiente forma:</p>
+<ul class="simple">
+<li><p>Se agrupan los dos clusters mas cercanos para formar un cluster mayor</p></li>
+<li><p>Se recalculan las distancias entre todos los clusters y el “nuevo” cluster.</p></li>
+<li><p>Se repiten los pasos anteriores hasta que todas las secuencias se han unido a un cluster</p></li>
+</ul>
+<p>Dos algoritmos ampliamente usados son UPGMA y Neighbor-Joining</p>
+<img src="Dmat.png"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the &#39;Biostrings&#39; package. </span>
+<span class="c1"># &#39;Biostrings&#39; provides efficient containers to handle and analyze biological sequences.</span>
+<span class="n">library</span><span class="p">(</span><span class="s2">&quot;Biostrings&quot;</span><span class="p">)</span>
+<span class="c1"># Si no lo ha hecho, instale phangorn:</span>
+<span class="c1">#install.packages(&quot;phangorn&quot;)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">phangorn</span><span class="p">)</span>
+
+<span class="c1"># Vamos a crear la matriz de distancia D de la figura entre 5 especies o secuencias</span>
+<span class="n">D</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span>
+                             <span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span>
+                             <span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span>
+                             <span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span>
+                             <span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">byrow</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Esta forma de escribirlo le dice a R que distribuya el vector de secuencias </span>
+<span class="c1"># por hileras &quot;byrow=T y en 5 columnas &quot;ncol=5&quot;&quot;</span>
+<span class="c1"># Esta matriz representa la distancia por pares entre </span>
+<span class="c1"># un vector en las columnas y uno en las hileras</span>
+<span class="n">D</span>
+
+<span class="c1"># Le damos los nombres a las hileras</span>
+<span class="n">rownames</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> Cómo interpretaría esta matriz? Por qué cree que es "ultramétrica"? Que especies o secuencias se agruparían primero? </div><section id="upgma-unweighted-pair-group-method-with-arithmetic-mean">
+<h3>UPGMA: Unweighted Pair Group Method with Arithmetic mean<a class="headerlink" href="#upgma-unweighted-pair-group-method-with-arithmetic-mean" title="Permalink to this heading">#</a></h3>
+<p>El método UPGMA es un ejemplo de cluster jerárquico. La distancia entre dos clusters se calcula con la media de las distancias entre cada punto del primer cluster al segundo cluster</p>
+<p>En el siguiente link puede encontrar un ejemplo paso a paso para construir el siguiente agrupamiento: <a class="reference external" href="http://www.slimsuite.unsw.edu.au/teaching/upgma/">http://www.slimsuite.unsw.edu.au/teaching/upgma/</a></p>
+<img src="upgma15.png"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora vamos a agrupar los elemento</span>
+<span class="n">UPGMA</span> <span class="o">&lt;-</span> <span class="n">upgma</span><span class="p">(</span><span class="k">as</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+
+<span class="c1"># Y graficamos el cluster</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">UPGMA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nj-neighbour-joining">
+<h3>NJ: Neighbour Joining<a class="headerlink" href="#nj-neighbour-joining" title="Permalink to this heading">#</a></h3>
+<p>Mientras que en un árbol realizado con UPGMA todos los puntos están alineados y las ramas tienen la misma distancia (porque las distancias se calculan por la media), en NJ se calcula la “distancia acumulada” para cada secuencia i (A-E),  <span class="math notranslate nohighlight">\(U_i = Σ d_{ij}\)</span>. Usando esta distancia acumulada Ui, se calcula una matriz de distancia <span class="math notranslate nohighlight">\(e_{ij}\)</span> (para cada par de de secuencias i ay j), de acuerdo a la fórmula</p>
+<p><span class="math notranslate nohighlight">\(e_{ij}\)</span> = <span class="math notranslate nohighlight">\(d_{ij}\)</span>– <span class="math notranslate nohighlight">\(\frac{U_i + U_j}{N – 2}\)</span></p>
+<img src="NJfig.png"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos el agrupamiento con NJ</span>
+<span class="n">NJ</span> <span class="o">&lt;-</span> <span class="n">NJ</span><span class="p">(</span><span class="k">as</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+
+<span class="c1"># Y graficamos el árbol</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">NJ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="matriz-de-distancia-entre-secuencias">
+<h3>Matriz de distancia entre secuencias<a class="headerlink" href="#matriz-de-distancia-entre-secuencias" title="Permalink to this heading">#</a></h3>
+<p>Para un grupo de secuencias, la distancia se puede calular apartir del alineamiento. Esta distancia es una medida cuantitativa de la divergencia entre secuencias, y para algunas secuencias (aquellas en las que las tasas de evolución son aproximadamente similares), sirve como estimación del tiempo que ha pasado entre esta divergencia (llamado el <em>reloj molecular</em>).</p>
+<p>Para comenzar, realizamos el alineamiento entre secuencias</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the &#39;Biostrings&#39; package. </span>
+<span class="c1"># &#39;Biostrings&#39; provides efficient containers to handle and analyze biological sequences.</span>
+<span class="n">library</span><span class="p">(</span><span class="s2">&quot;Biostrings&quot;</span><span class="p">)</span>
+<span class="c1"># Load the phangorn library: Provides tools for phylogenetic reconstruction and analysis</span>
+<span class="n">library</span><span class="p">(</span><span class="s2">&quot;phangorn&quot;</span><span class="p">)</span>
+<span class="c1"># Load the ape library: Essential for reading, writing, and manipulating phylogenetic trees</span>
+<span class="n">library</span><span class="p">(</span><span class="s2">&quot;ape&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define un vector que contiene 4 secuencias</span>
+<span class="n">sequences</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;ACTGGCTG&quot;</span><span class="p">,</span> <span class="s2">&quot;ACTGCTG&quot;</span><span class="p">,</span> <span class="s2">&quot;AGTGACT&quot;</span><span class="p">,</span> <span class="s2">&quot;TGTGACTGA&quot;</span><span class="p">)</span>
+
+<span class="c1"># Convy]ierte el vector de secuencias en un objeto DNAStringSet usando Biostrings</span>
+<span class="n">biostrings_sequences</span> <span class="o">=</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">sequences</span><span class="p">)</span>
+
+<span class="c1"># Realiza un alineamiento múltiple sobre el objeto DNAStringSet usando &#39;msa&#39; </span>
+<span class="n">msa_result_sample</span> <span class="o">=</span> <span class="n">msa</span><span class="p">(</span><span class="n">biostrings_sequences</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;ClustalW&quot;</span><span class="p">)</span>
+
+<span class="c1"># Observe el resultado del alineamiento</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msa_result_sample</span><span class="p">)</span>
+
+<span class="c1"># Y otro ejemplo con amino ácidos con diferentes longitudes </span>
+<span class="c1"># y usando la matríz de sustitución Blosum</span>
+
+<span class="n">amino_sequences</span> <span class="o">=</span>  <span class="n">c</span><span class="p">(</span><span class="s2">&quot;ARNDCLTQ&quot;</span><span class="p">,</span> <span class="s2">&quot;ARN&quot;</span><span class="p">,</span> <span class="s2">&quot;ARMDCQK&quot;</span><span class="p">,</span> <span class="s2">&quot;RRRTDGPSW&quot;</span><span class="p">)</span>
+<span class="n">amino_sequences</span> <span class="o">=</span> <span class="n">AAStringSet</span><span class="p">(</span><span class="n">amino_sequences</span><span class="p">)</span> 
+
+<span class="c1"># Realiza la alineación múltiple de las secuencias de aminoácidos.</span>
+<span class="c1"># El argumento &#39;type&#39; se establece en &quot;protein&quot; para indicar que estamos trabajando con secuencias de proteínas.</span>
+<span class="n">amino_sequences_aln</span> <span class="o">=</span> <span class="n">amino_sequences_aln</span> <span class="o">=</span> <span class="n">msa</span><span class="p">(</span><span class="n">amino_sequences</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;protein&quot;</span><span class="p">,</span><span class="n">substitutionMatrix</span> <span class="o">=</span> <span class="n">BLOSUM62</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">amino_sequences_aln</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A partir del alineamiento obtenemos las distancias por pares. Para obtener estas distancias debemos crear un objeto “phyDat”. Con este objeto podemos calcular las distancias por pares, bajo los supuesto de algún modelo de evolución. En este caso utilizaremos el “Jukes-Cantor” que asume frecuencias de bases iguales e igual probabilidad para todas la sustituciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define un vector que containing four DNA sequences</span>
+<span class="c1"># Convert the multiple sequence alignment result to a phyDat object for downstream analyses in phangorn</span>
+<span class="n">phyDat_msa_sample</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">phyDat</span><span class="p">(</span><span class="n">msa_result_sample</span><span class="p">)</span>
+
+<span class="c1"># Se asignan nombres a las secuencias</span>
+<span class="n">names</span><span class="p">(</span><span class="n">phyDat_msa_sample</span><span class="p">)</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;Seq 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Seq 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Seq 3&quot;</span><span class="p">,</span> <span class="s2">&quot;Seq 4&quot;</span><span class="p">)</span>
+
+<span class="c1">#calculamos la distancia con el modelo JC69</span>
+<span class="n">msa_sample</span><span class="o">.</span><span class="n">dist</span> <span class="o">&lt;-</span> <span class="n">dist</span><span class="o">.</span><span class="n">ml</span><span class="p">(</span><span class="n">phyDat_msa_sample</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;JC69&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora agrupamos las secuencias con los dos métodos que hemos descrito aquí, UPGMA y NJ, y graficamos el árbol</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agrupamiento de secuencias con UPGMA</span>
+<span class="n">msa_sample_UPGMA</span> <span class="o">&lt;-</span> <span class="n">upgma</span><span class="p">(</span><span class="n">msa_sample</span><span class="o">.</span><span class="n">dist</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">msa_sample_UPGMA</span> <span class="p">)</span>
+
+<span class="c1">#Agrupamiento con NJ</span>
+<span class="n">msa_sample_NJ</span> <span class="o">&lt;-</span> <span class="n">NJ</span><span class="p">(</span><span class="n">msa_sample</span><span class="o">.</span><span class="n">dist</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">msa_sample_NJ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También es posible importar un árbol realizado para graficarlo desde R. Esto se hace con frecuencia, ya que si bien R tiene la fortaleza de graficar, es mas lento y menos eficiente para realizar los alinieamientos y cálculos de distancias. A continuación vamos a importar el alineamiento de las secuencias de proteína de Citocromo B que habíamos generado con clustal (archivo .phy). A partir de este archivo vamos a:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Calcular las distancias por pares usando un modelo evolutivo (p.ej JC69)</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>Aplicar los algoritmos de agrupamiento</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>Graficar el árbol</p></li>
+</ol>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cytB</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">aa</span><span class="p">(</span><span class="s2">&quot;CytBProt.phy&quot;</span><span class="p">)</span>
+<span class="n">cytB_phy_dat</span> <span class="o">&lt;-</span> <span class="k">as</span><span class="o">.</span><span class="n">phyDat</span><span class="p">(</span><span class="n">cytB</span><span class="p">)</span>
+<span class="n">cytB_dist</span> <span class="o">&lt;-</span> <span class="n">dist</span><span class="o">.</span><span class="n">ml</span><span class="p">(</span><span class="n">cytB_phy_dat</span><span class="p">)</span>
+<span class="n">cytB_UPGMA</span> <span class="o">&lt;-</span> <span class="n">upgma</span><span class="p">(</span><span class="n">cytB_dist</span><span class="p">)</span>
+<span class="n">cytB_NJ</span> <span class="o">&lt;-</span> <span class="n">NJ</span><span class="p">(</span><span class="n">cytB_dist</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">cytB_UPGMA</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">cytB_NJ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro_R.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción a R</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-filogenetica">Inferencia Filogenética</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-distancia">Matriz de distancia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upgma-unweighted-pair-group-method-with-arithmetic-mean">UPGMA: Unweighted Pair Group Method with Arithmetic mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nj-neighbour-joining">NJ: Neighbour Joining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-distancia-entre-secuencias">Matriz de distancia entre secuencias</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Laura Salazar Jaramillo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -64,6 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro_R';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inferencia filogenética y árboles" href="phylo_trees.html" />
     <link rel="prev" title="Herraminetas de NCBI" href="ncbi%26blast.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,6 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phylo_trees.html">Inferencia filogenética y árboles</a></li>
 </ul>
 
     </div>
@@ -370,7 +372,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-librerias">Instalación de librerías</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-filogenetica">Inferencia Filogenética</a></li>
 </ul>
             </nav>
         </div>
@@ -587,12 +588,6 @@ nordic_df$area
 <p>También se puede utilizar el gestionador conda</p>
 </section>
 </section>
-<section id="inferencia-filogenetica">
-<h2>Inferencia Filogenética<a class="headerlink" href="#inferencia-filogenetica" title="Permalink to this heading">#</a></h2>
-<p>El cálculo de las distancias y el orden de agrupamiento es la fuente para realizar una inferencia filogenética. Primero se utilizan métodos de agrupamiento (<em>cluster</em>) basados en la <strong>matriz de distancia</strong> (calculada a partir de un alineamiento). Este primer agrupamiento no agarantizan una solución óptima, así que en segundo lugar se busca el mejor árbol. Vamos a ver aquí dos métodos: el de parsimonia y el d maximum likelihood.</p>
-<p>Para entender los conceptos utilizando R vamos a seguir el siguiente tutorial:</p>
-<p><a class="reference external" href="https://rpubs.com/mvillalobos/L01_Phylogeny">https://rpubs.com/mvillalobos/L01_Phylogeny</a></p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -635,6 +630,15 @@ nordic_df$area
         <p class="prev-next-title">Herraminetas de NCBI</p>
       </div>
     </a>
+    <a class="right-next"
+       href="phylo_trees.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Inferencia filogenética y árboles</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -661,7 +665,6 @@ nordic_df$area
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-librerias">Instalación de librerías</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-filogenetica">Inferencia Filogenética</a></li>
 </ul>
   </nav></div>
 
