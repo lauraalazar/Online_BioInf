@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Notebooks with MyST Markdown &#8212; Material para el curso de Bioinformatica-EIA</title>
+    <title>Hidden Markov Models &#8212; Material para el curso de Bioinformatica-EIA</title>
   
   
   
@@ -61,9 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown-notebooks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hmm';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="De Genes a Genomas" href="genomica.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,7 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro_linux.html">Introducción a la Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exscripts.html">Scripts Ejecutables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables, declaraciones y loops</a></li>
@@ -170,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro_R.html">Introducción a R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phylo_trees.html">Inferencia filogenética y árboles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genomica.html">De Genes a Genomas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hmm.html">Hidden Markov Models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hidden Markov Models</a></li>
 </ul>
 
     </div>
@@ -242,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkdown-notebooks.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fhmm.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -272,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/markdown-notebooks.md" target="_blank"
+      <li><a href="_sources/hmm.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -282,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -354,7 +355,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>Hidden Markov Models</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -364,9 +365,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-climatica-usando-markov-chain">Predicción climática usando Markov Chain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hmm-para-anotaciones-de-genoma">HMM para Anotaciones de Genoma</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-hmm-para-secuencias">Herramientas HMM para secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pfam-interpro">Pfam-Interpro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hmmer">HMMER</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -378,45 +385,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
-</section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="hidden-markov-models">
+<h1>Hidden Markov Models<a class="headerlink" href="#hidden-markov-models" title="Permalink to this heading">#</a></h1>
+<p>A pesar de que los alineamientos son muy útiles para comparar diferentes secuencias, no son suficientes para el nivel de <em>ruido</em> que poseen los genomas. Para esto es útil tener niveles de confianza de los patrones que se observan. Los Modelos de Markov sirven para cuantificar estados siguientes apartir de la información que se tiene. Un ejemplo clásico de un modelo de Markov es una predicción climática (ejemplo tomado de <a class="reference external" href="https://towardsdatascience.com/predicting-the-weather-with-markov-chains-a34735f0c4df">https://towardsdatascience.com/predicting-the-weather-with-markov-chains-a34735f0c4df</a>)</p>
+<section id="prediccion-climatica-usando-markov-chain">
+<h2>Predicción climática usando Markov Chain<a class="headerlink" href="#prediccion-climatica-usando-markov-chain" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
+<li><p>Datos Observados: Supongamos que hemos generado 7 días de datos históricos de clima para entrenar nuestro Markov Chain. La secuencia de eventos son: [rain, sun, rain, sun, rain, rain, sun]
+<img src="weather1.webp"/></p></li>
 </ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
+<ol class="arabic simple" start="2">
+<li><p>Inferencia del patrón (<em>Hidden path</em>): Ahora calculamos los porcentajes de
+a) días soleados después de días lluviosos: 3/4=75%</p></li>
+</ol>
+<img src="weather2.webp"/>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b) días lluviosos después de días soleados: 2/2 = 100%
 </pre></div>
 </div>
+<img src="weather3.webp"/>
+<ol class="arabic simple" start="3">
+<li><p>Construimos una matriz de transición con las probabilidades basadas en observaciones de los estados ocultos (rain-after-rain = 25% and sun-after-sun = 0%).</p></li>
+</ol>
+<img src="matrix.webp"/><ol class="arabic simple" start="4">
+<li><p>Markov Chain</p></li>
+</ol>
+<img src="markovchain.webp"/><section id="hmm-para-anotaciones-de-genoma">
+<h3>HMM para Anotaciones de Genoma<a class="headerlink" href="#hmm-para-anotaciones-de-genoma" title="Permalink to this heading">#</a></h3>
+<p>Hidden Markov models (HMMs) so una forma de realizar modelos probabilísticos para <em>marcar</em> (anotar) fragmentos de secuencias. Estos modelos permiten tener en cuenta la heterogeneidad de diferentes fuentes y así nos evitan tener que imponer parámetros y patrones <em>ad hoc</em>.</p>
+<img src="hmm_exon_intron.webp"/>
+<p>Por ejemplo, cómo reconocer sitios de splicing? De acuerdo a un modelo de probabilidades podemos donde es el cambio de exón a intrón.</p>
+<p><a class="reference external" href="https://www.nature.com/articles/nbt1004-1315">https://www.nature.com/articles/nbt1004-1315</a></p>
+</section>
+</section>
+<section id="herramientas-hmm-para-secuencias">
+<h2>Herramientas HMM para secuencias<a class="headerlink" href="#herramientas-hmm-para-secuencias" title="Permalink to this heading">#</a></h2>
+<section id="pfam-interpro">
+<h3>Pfam-Interpro<a class="headerlink" href="#pfam-interpro" title="Permalink to this heading">#</a></h3>
+<p>Largas bases de datos de alineamientos múltiples se han utilizado para generar hidden Markov models. Estos agrupan los patrones y dan información funcional, clasificando las proteínas en familias así como haciendo predicciones de dominios. Esta conjunto de bases de datos está alojado en InterPro: <a class="reference external" href="https://www.ebi.ac.uk/interpro/">https://www.ebi.ac.uk/interpro/</a> (Para un tutorial más completo visite:
+<a class="reference external" href="https://www.ebi.ac.uk/training/online/courses/interpro-quick-tour/#vf-tabs__section--contents">https://www.ebi.ac.uk/training/online/courses/interpro-quick-tour/#vf-tabs__section–contents</a>)</p>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> Entre a https://www.ebi.ac.uk/interpro/search/sequence/ y pegue en la casilla en blanco una de las secuencias de citocromo B. De click en "search" y observe los resultados. Cuales son los dominios y familias? </div></section>
+<section id="hmmer">
+<h3>HMMER<a class="headerlink" href="#hmmer" title="Permalink to this heading">#</a></h3>
+<p>Contrariamente, podríamos estar interesados en buscar las proteínas pertencientes a cierta familia en un genoma o en otra especies. Esto decir, dado un perfil de HMM, que proteínas entran en este perfil (con cierta probabilidad)? Esto se puede realizar utilizando la herramienta HMMER: <a class="reference external" href="https://www.ebi.ac.uk/Tools/hmmer/search/hmmsearch">https://www.ebi.ac.uk/Tools/hmmer/search/hmmsearch</a></p>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> Entre a https://www.ebi.ac.uk/Tools/hmmer/search/hmmsearch y cargue el alineamiento de Citocromos realizado previamente (CytBProt.phy) y escoja una base de datos para buscar el perfil () </div></section>
 </section>
 </section>
 
@@ -451,6 +464,15 @@ See the YAML at the top of this page for example.</p></li>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="genomica.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">De Genes a Genomas</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -469,9 +491,15 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-climatica-usando-markov-chain">Predicción climática usando Markov Chain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hmm-para-anotaciones-de-genoma">HMM para Anotaciones de Genoma</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-hmm-para-secuencias">Herramientas HMM para secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pfam-interpro">Pfam-Interpro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hmmer">HMMER</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
