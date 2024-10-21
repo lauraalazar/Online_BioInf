@@ -440,7 +440,7 @@ Vamos a analizar el gen Tep1, que tiene un identificador en Flybase FBgn0041183<
 <div class="alert alert-block alert-info">
 <b>Ejercicio</b> Consulte el la información que hay disponible sobre este gen en https://flybase.org/ </div><p>Vamos a descargar dos archivos con las cuentas de este gen en las muestras de control y pasaritadas
 <a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt">https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt</a>
-<a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt">https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt</a></p>
+<a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/sec_FBgn0172832.txt">https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/sec_FBgn0172832.txt</a></p>
 <section id="analisis-de-gen-con-expresion-diferencial">
 <h3>Análisis de gen con expresión diferencial<a class="headerlink" href="#analisis-de-gen-con-expresion-diferencial" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -455,12 +455,12 @@ mel.ctl &lt;- which(cuentas_mel$tratamiento==&quot;ctl&quot;)
 mel.ctl
 
 # creamos una variable para las muestras control
-mel.cuentas.ctl&lt;-cuentas_mel[ctl,] #esta forma de escribirlo significa que las hileras son las ctl y no se espcifica las columnas (las despliega todas)
+mel.cuentas.ctl&lt;-cuentas_mel[mel.ctl,] #esta forma de escribirlo significa que las hileras son las ctl y no se espcifica las columnas (las despliega todas)
 
 # creamos una variable para las muestras parasitadas
 mel.par &lt;- which(cuentas_mel$tratamiento==&quot;par&quot;)
 mel.par
-mel.cuentas.par&lt;-cuentas_mel[par,]
+mel.cuentas.par&lt;-cuentas_mel[mel.par,]
 
 # Hallamos las medias de las cuentas, que cree de la expresion de esots genes?
 mel.mean.ctl&lt;-mean(mel.cuentas.ctl$cuentas)
