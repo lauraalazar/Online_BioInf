@@ -175,6 +175,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="phylo_trees.html">Inferencia filogenética y árboles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genomica.html">De Genes a Genomas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hmm.html">Hidden Markov Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="highthroughput.html">Secuenciación Masiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AlineamientosCuentas.html">Alineamientos y cuentas</a></li>
+
 </ul>
 
     </div>
@@ -423,8 +426,9 @@ Escriba a "papel y lápiz" cómo sería la hipótesis de relación ancestral ent
 </div><p>Ahora lo haremos con python. Entramos a Apolo y activamos los ambientes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">biopython</span>   <span class="c1"># recuerde que su ambiente de conda puede tener un nombre diferente</span>
-<span class="n">python</span>                      <span class="c1"># recuerde utilizar la versión de python donde instaló biopython</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">lsalazarj</span><span class="nd">@apolo</span><span class="o">.</span><span class="n">eafit</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">co</span>
+<span class="n">source</span> <span class="n">activate</span> <span class="n">biopython_py3</span><span class="mf">.9</span> <span class="c1"># recuerde que su ambiente de conda puede tener un nombre diferente</span>
+<span class="n">python3</span><span class="mf">.9</span>                       <span class="c1"># recuerde utilizar la versión de python donde instaló biopython</span>
 </pre></div>
 </div>
 </div>
@@ -694,10 +698,7 @@ Chequee este mismo alineamiento en bipython. Defina las dos secuencias, los gaps
 <img src="All_transitions_and_transversions.png" width=500 height=500 /></p>
 <p>En el caso de los amino ácidos, existen sesgos al nivel de mutacions o de selección natural que hacen algunas sustitutciones mas probable que otras. Primero, algunos amino ácidos tienen mas probabilidad de mutar a otros porque sus codone son mas similares en código genético. Segundo. algunas sutituciones se fijan mejor durante la evolución porque los amino ácidos comparten propiedades fisico-químicas similares. Estas diferencias tratan de reflejarse en las matrices de sustitutción</p>
 <p>Ejemplo de Matriz <a class="reference external" href="https://es.wikipedia.org/wiki/BLOSUM">Blosum62</a></p>
-<img src="Blosum62-dayhoff-ordering.png" width=400 height=400 /><div class="alert alert-block alert-info">
-<b>Ejercicio</b> 
-Use las secuencias de la phosphatasa alkalina de E. coli y alinee tanto los nucleótidos como los amino acidos de wt con alpha y con beta
-</div></section>
+<img src="Blosum62-dayhoff-ordering.png" width=400 height=400 /></section>
 <section id="alineamientos-multiples">
 <h3>Alineamientos múltiples<a class="headerlink" href="#alineamientos-multiples" title="Permalink to this heading">#</a></h3>
 <p>Con frecuencia estamos interesados en comparar mas de dos secuencias. Los alineamiento múltiples contienen mas información sobre sitios conservados que pueden ser mas fácil de identificar. Al mismo tiempo son computacionalmente mucho mas complejos y el tiempo computación incrementa exponencialmente. La aproximación mas usada es alinear fragmentos por similitud, y progresivamente construir alineamientos locales por pares, tomando primero las mas similares, formando “clusters jerárquicos”.</p>
@@ -705,9 +706,12 @@ Use las secuencias de la phosphatasa alkalina de E. coli y alinee tanto los nucl
 <p>Una vez copiados estos archivos en el directorio de Apolo, entramos a nuestra cuenta y creamos un ambiente para instalar clustal</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">clustal</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">clustal</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">lsalazarj</span><span class="nd">@apolo</span><span class="o">.</span><span class="n">eafit</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">co</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">python</span><span class="o">/</span><span class="mf">3.10</span><span class="n">_miniconda</span><span class="o">-</span><span class="mf">23.5.2</span> 
+<span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">filogenia</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">filogenia</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">clustalw</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">iqtree</span>
 </pre></div>
 </div>
 </div>
@@ -715,7 +719,7 @@ Use las secuencias de la phosphatasa alkalina de E. coli y alinee tanto los nucl
 <p>Este paso de instalación solo se realiza una vez por programa. Una vez instalado, se activa</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">clustal</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">filogenia</span>
 </pre></div>
 </div>
 </div>
@@ -724,17 +728,30 @@ Use las secuencias de la phosphatasa alkalina de E. coli y alinee tanto los nucl
 <p>Este archivo contiene la secuencia de amino acidos de diferentes proteínas de citocromo B del genoma de la mitocondria de 16 especies de vertebrados en formato “fasta”. Descargue las secuencias (vía <code class="docutils literal notranslate"><span class="pre">wget</span></code> o <code class="docutils literal notranslate"><span class="pre">curl</span></code>, para su uso revise el capítulo “intro linux”) en Apolo localizadas en:
 <a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBProt.txt">https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBProt.txt</a>
 <a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBDNA.txt">https://raw.githubusercontent.com/lauraalazar/BiologiaComputacional/main/CytBDNA.txt</a></p>
-<p>El comando para alinear con clustalw es el siguiente:</p>
+<p>El comando para alinear con clustalw es el siguiente (recordemos que en Apolo este comando hay que escribirlo dentro de un script <a class="reference external" href="http://slurm.sh">slurm.sh</a>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clustalw2</span> <span class="o">-</span><span class="n">infile</span><span class="o">=</span><span class="n">CytBProt</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="n">protein</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clustalw2</span> <span class="o">-</span><span class="n">infile</span><span class="o">=</span><span class="n">CytBProt</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="n">protein</span> <span class="o">-</span><span class="n">output</span><span class="o">=</span><span class="n">phylip</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Esto producirá un archivo .aln que contiene el alineamiento y uno .dnd que contiene un <em>árbol</em>. Este árbol está en formato (Newick)[<a class="reference external" href="https://en.wikipedia.org/wiki/Newick_format">https://en.wikipedia.org/wiki/Newick_format</a>], inspecciónelo (usando <code class="docutils literal notranslate"><span class="pre">less</span></code> o <code class="docutils literal notranslate"><span class="pre">cat</span></code>).</p>
-<p>Es posible visualizar los alineamientos y árobles filogenéticos en <a class="reference external" href="https://www.ebi.ac.uk/jdispatcher/msa/clustalo">https://www.ebi.ac.uk/jdispatcher/msa/clustalo</a> subiendo directamente el archivo. Revise el alineamiento y el árbol filogenético, qué información puede sacar de allí?</p>
 <div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Escriba este comando desde un script "slurm" y ejecútelo
+</div><p>Una vez termina de ejecutar el trabajo, se produce 1 archivo <em>.phy</em> que contiene el alineamiento, y uno .dnd que contiene un <em>árbol</em>. Este árbol está en formato (Newick)[<a class="reference external" href="https://en.wikipedia.org/wiki/Newick_format">https://en.wikipedia.org/wiki/Newick_format</a>], inspecciónelo (usando <code class="docutils literal notranslate"><span class="pre">less</span></code> o <code class="docutils literal notranslate"><span class="pre">cat</span></code>).</p>
+<p>Ahora vamos a utilizar (iqtree)[<a class="reference external" href="http://www.iqtree.org/doc/Quickstart">http://www.iqtree.org/doc/Quickstart</a>] para visualizar el árbol (recordemos que en Apolo este comando hay que escribirlo dentro de un script <a class="reference external" href="http://slurm.sh">slurm.sh</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iqtree</span> <span class="o">-</span><span class="n">s</span> <span class="n">CytBProt</span><span class="o">.</span><span class="n">phy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> 
+Escriba este comando desde un script "slurm" y ejecútelo
+</div><div class="alert alert-block alert-info">
 <b>Ejercicio</b> 
 Repita el mismo proceso de alineamiento y generación de árbol con el archivo de nucleótidos de Citocromo B. Ve alguna diferencia con respecto a las proteínas, por ejemplo en la topología del árbol? A qué cree que se deben las diferencias?
 </div></section>

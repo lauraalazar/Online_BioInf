@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Scripts Ejecutables &#8212; Material para el curso de Bioinformatica-EIA</title>
+    <title>Alineamientos y cuentas &#8212; Material para el curso de Bioinformatica-EIA</title>
   
   
   
@@ -61,11 +61,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'exscripts';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AlineamientosCuentas';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Variables, declaraciones y loops" href="variables.html" />
-    <link rel="prev" title="Introducción a la Terminal" href="intro_linux.html" />
+    <link rel="prev" title="Secuenciación Masiva" href="highthroughput.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro_linux.html">Introducción a la Terminal</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Scripts Ejecutables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exscripts.html">Scripts Ejecutables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables, declaraciones y loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python.html">Introducción a Python y Biopython</a></li>
 
@@ -174,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="genomica.html">De Genes a Genomas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hmm.html">Hidden Markov Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="highthroughput.html">Secuenciación Masiva</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AlineamientosCuentas.html">Alineamientos y cuentas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Alineamientos y cuentas</a></li>
 
 </ul>
 
@@ -247,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexscripts.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAlineamientosCuentas.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -277,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/exscripts.ipynb" target="_blank"
+      <li><a href="_sources/AlineamientosCuentas.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -359,7 +360,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Scripts Ejecutables</h1>
+    <h1>Alineamientos y cuentas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -369,9 +370,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de Texto</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hacer-un-archivo-ejecutable">Hacer un archivo ejecutable</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Alineamientos y cuentas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamientos">Alineamientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuentas">Cuentas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expresion-diferencial">Expresión Diferencial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-gen-con-expresion-diferencial">Análisis de gen con expresión diferencial</a></li>
 </ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-ggplot">Intermezzo ggplot</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -382,60 +392,144 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="scripts-ejecutables">
-<h1>Scripts Ejecutables<a class="headerlink" href="#scripts-ejecutables" title="Permalink to this heading">#</a></h1>
-<p>Ahora que ya estamos un poco familiarizados con la línea de comando, vamos a utilizar algunas herramientas básicas de programación: al digitar un comando, este da una instrucción para recibir una inofrmación. Este proceso se puede <strong>automatizar</strong> (por ejemplo mover, renombrar y copiar archivos), escribiendo el comando en un <strong>script</strong>.</p>
-<p>Los scripts son la forma mas simple de escribir un programa. Vamos a escribir un <strong>script bash</strong> y a ejecutarlo.</p>
-<section id="editores-de-texto">
-<h2>Editores de Texto<a class="headerlink" href="#editores-de-texto" title="Permalink to this heading">#</a></h2>
-<p>Dentro del directorio <code class="docutils literal notranslate"><span class="pre">biocomp_clase1</span></code> vamos a crear un nuevo archivo llamado <code class="docutils literal notranslate"><span class="pre">miscript.sh</span></code>. Puedes hacer esto utilizando un editor de texto de terminal llamado <code class="docutils literal notranslate"><span class="pre">nano</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p>Este comando inicia el editor de texto. A continuación escriba <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">Hello</span> <span class="pre">World!</span></code>. “Hello World!” es una frase icónica en programación y “echo” es una instrucción que reproduce el texto que sigue. Guarde el archivo usando <code class="docutils literal notranslate"><span class="pre">[ctrl-o]</span> <span class="pre">[enter]</span></code>  y cierre el programa con <code class="docutils literal notranslate"><span class="pre">[ctrl-x]</span> <span class="pre">[enter]</span></code>. En la terminal, ejecute el script con el siguiente comando:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p><strong>Bash</strong> es un “interpretador” que lee el archivo y entiende cómo ejecutar el comando.</p>
-<p>Otra opción para editor de text es <em>Vim</em>, aunque requiere mas comandos para cada instrucción, está disponible en casi todas la instalaciones de linux</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p>Después, presione la tecla <code class="docutils literal notranslate"><span class="pre">[i]</span></code> para entrar en modo de inserción.
-En la parte inferior debe aparecer <em>– INSERT –</em> y entonces puede añadirl el texto “echo Hello World!”.
-Para guardar y salir de Vim haga lo siguiente:</p>
-<ol class="arabic simple">
-<li><p>Cambie a modo de comando presionando <code class="docutils literal notranslate"><span class="pre">[Esc]</span></code></p></li>
-<li><p>Escriba <code class="docutils literal notranslate"><span class="pre">[:]</span></code> (dos puntos) para abrir la barra prompt bar en la esquina inferior izquierda.</p></li>
-<li><p>Escriba <code class="docutils literal notranslate"><span class="pre">[x]</span></code> después de “:” y  <code class="docutils literal notranslate"><span class="pre">[Enter]</span></code></p></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="alineamientos-y-cuentas">
+<h1>Alineamientos y cuentas<a class="headerlink" href="#alineamientos-y-cuentas" title="Permalink to this heading">#</a></h1>
+<section id="alineamientos">
+<h2>Alineamientos<a class="headerlink" href="#alineamientos" title="Permalink to this heading">#</a></h2>
+<p>Una vez revisada la calidad de las lecturas, se realiza el alineamiento o mapeo de estas a un genoma de referencia (o al transcriptoma ensamblado a partir de estas mismas lecturas). Existen varios programas, por ejemplo GSNAP, HISAT2, STAR, BWA, Salmon,.</p>
+<img src="RNAseqWorkflow.png"/><p>El objetivo de este paso es entender cuantas lecturas se alinean con cada gen</p>
+<img src="RNAseq_alignment.webp"/>
+https://biobox-analytics.medium.com/sequencing-alignment-for-beginners-9687c0dcfc67<p>El output del alineamiento es un archivo .sam (Sequence Alignment/Map), compuesto por una tabla con la información del alineamiento de todas las lecturas que alinearon. Por esta razón es un archivo muy extenso y pesado, el cual se puede convertir en un archivo binario .bam</p>
+<p>Cada linea contiene 11 campos obligatorios para información esencial sobre el mapeo. El siguiente es un ejemplo de archivo sam.</p>
+<img src="sam_format_annotated_example.webp"/>
+https://bioinformaticamente.com/2021/03/03/sam-bam/</section>
+<section id="cuentas">
+<h2>Cuentas<a class="headerlink" href="#cuentas" title="Permalink to this heading">#</a></h2>
+<p>Luego viene el paso de cuantificación. Esta se puede realizar con herramientas como htseq-count or FeatureCounts. La cuantificación de reads alineados produce una tabla de IDs de genes y sus cuentas.
+Revise los resultados, por ejemplo de 2 muestras diferentes, una de <em>D. melanogaster</em> y otra de <em>D. sechellia</em>:</p>
+<p><a class="github reference external" href="https://github.com/lauraalazar/RNAseq-Drosophila-parasitoids/blob/master/counts/melS1/sample1.counts">lauraalazar/RNAseq-Drosophila-parasitoids</a>
+<a class="github reference external" href="https://github.com/lauraalazar/RNAseq-Drosophila-parasitoids/blob/master/counts/sec/sample21.counts">lauraalazar/RNAseq-Drosophila-parasitoids</a>
+Verá una columna con los ID provenientes de <a class="reference external" href="https://flybase.org/">Flybase</a>, la base de datos para <em>Drosophila</em>.</p>
+</section>
+<section id="expresion-diferencial">
+<h2>Expresión Diferencial<a class="headerlink" href="#expresion-diferencial" title="Permalink to this heading">#</a></h2>
+<p>El siguiente paso es entender cuales de esos genes se están expresando a un nivel basal, y cuales se expresan en respuesta a un estímulo. Es decir, cómo saber qué genes se están <strong>sobre-expresado</strong> o <strong>sub-expresado</strong>? Para esto necesitamos</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p><em>normalizar</em> las cuentas, y existen varias metodologías para esto (listar).</p></li>
 </ol>
-</section>
-<section id="hacer-un-archivo-ejecutable">
-<h2>Hacer un archivo ejecutable<a class="headerlink" href="#hacer-un-archivo-ejecutable" title="Permalink to this heading">#</a></h2>
-<p>Liste los archivos en el directorio con la opción <code class="docutils literal notranslate"><span class="pre">-l</span></code> para mas información</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
-<span class="n">total</span> <span class="mi">12</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">usuario</span> <span class="n">root</span>   <span class="mi">18</span> <span class="n">Jun</span> <span class="mi">26</span> <span class="mi">10</span><span class="p">:</span><span class="mi">56</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p>La primera lista de caracteres indica los <strong>permisos</strong> del archivo. Aquí vemos que el usuario tiene permiso de lectura (<code class="docutils literal notranslate"><span class="pre">r</span></code>) y escritura (<code class="docutils literal notranslate"><span class="pre">w</span></code>), pero no de ejecución(<code class="docutils literal notranslate"><span class="pre">x</span></code>).
-Para entender mejor este tema puede consultar este <a class="reference external" href="https://ryanstutorials.net/linuxtutorial/permissions.php">tutorial sobre permisos</a>. Vamos a cambiar el permiso de ejecución</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span> <span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p>Ahora todos los usuarios tienen permiso para ejecutar el archivo. Como es un script muy simple y sin consecuencias, no nos preocupa que todos tengan permisos. En otros casos es muy importante tener cuidado. Ahora lo podemos ejecutar:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">miscript</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<div class="alert alert-block alert-warning">
-<b>Ejemplo de script:</b> Con frecuencia se recomienda añadir una primera línea en el script que indica el interpretador que se debe usar. En este caso es el interpretador por defecto (bash), pero no es siempre el caso. Además se usa escribir una línea que describe el propósito del script y que está precedida por el símbolo ``#`` que indica que es un comentario
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-# Script de ejemplo para la práctica 1 de Comp. Biol
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>comparar los controles con el tratamiento. En este caso, se utilizó <a class="reference external" href="https://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf">edgeR</a> para la comparación estadística. Esta herramienta utiliza una distribución <em>baseline</em> de genes para estimar rangos de expresión, y luego, para cada gen, compara la expresión del tratamiento vs controles determinar una expresión diferencial significativa</p></li>
+</ol>
+</li>
+</ul>
+<img src="logFold_cpm.webp"/>
+<ul class="simple">
+<li><p>Fold Change: cambio relativo en la expresión de un gen con respecto a una referencia, por ejemplo controles vs tratamiento. Por ejemplo, un aumento de 2 veces (2-fold) indica que la expresión de un gen se ha duplicado (<span class="math notranslate nohighlight">\(2*genx_{par} = 2*genx_{ctl}\)</span>), mientras que un valor de 0.5-fold indica una disminución a la mitad.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(log_2(1) = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(log_2(2) = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(log2(0.5) = -1\)</span></p></li>
+</ul>
+</li>
+<li><p>CPM: counts per million es el número de lecturas de un gen que se observarían por cada millón de lecturas totales en la muestra.</p></li>
+</ul>
+<p>Siguiendo con el estudio de caso de las mosquitas <em>Drosophilas</em>, algunos de los genes que dieron significativos para la expresión diferencial entre muestras parasitadas y control se pueden consultar en la tabla: <a class="github reference external" href="https://github.com/lauraalazar/RNAseq-Drosophila-parasitoids/blob/master/tables/LRT.pTable_spAll_5.txt">lauraalazar/RNAseq-Drosophila-parasitoids</a>
+Vamos a analizar el gen Tep1, que tiene un identificador en Flybase FBgn0041183</p>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b> Consulte el la información que hay disponible sobre este gen en https://flybase.org/ </div><p>Vamos a descargar dos archivos con las cuentas de este gen en las muestras de control y pasaritadas
+<a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt">https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt</a>
+<a class="reference external" href="https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt">https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/melS1_FBgn0041183.txt</a></p>
+<section id="analisis-de-gen-con-expresion-diferencial">
+<h3>Análisis de gen con expresión diferencial<a class="headerlink" href="#analisis-de-gen-con-expresion-diferencial" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+# Cargar las cuentas para las muestras de D. melanogaster para el gen Tep1
+setwd(&quot;docencia/eafit/comp_bio/2024-2/alineamiento_cuentas/&quot;)
+cuentas_mel &lt;-read.table(&quot;melS1_FBgn0041183.txt&quot;, header=T)
 
-echo Hello World!
+# cuales son las muestras control?
+mel.ctl &lt;- which(cuentas_mel$tratamiento==&quot;ctl&quot;)
+mel.ctl
+
+# creamos una variable para las muestras control
+mel.cuentas.ctl&lt;-cuentas_mel[ctl,] #esta forma de escribirlo significa que las hileras son las ctl y no se espcifica las columnas (las despliega todas)
+
+# creamos una variable para las muestras parasitadas
+mel.par &lt;- which(cuentas_mel$tratamiento==&quot;par&quot;)
+mel.par
+mel.cuentas.par&lt;-cuentas_mel[par,]
+
+# Hallamos las medias de las cuentas, que cree de la expresion de esots genes?
+mel.mean.ctl&lt;-mean(mel.cuentas.ctl$cuentas)
+mel.mean.ctl
+mel.mean.par&lt;-mean(mel.cuentas.par$cuentas)
+mel.mean.par
+
+
+# Graficamos las cuentas del grupo ctl vs par
+boxplot(cuentas_mel$cuentas~cuentas_mel$tratamiento,xlab = &quot;tratamiento&quot;,ylab = &quot;cuentas&quot;, main=&quot;Expresión de gen FBgn0041183&quot;)
+# 
 </pre></div>
 </div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+Qué diría de la expresión de este gen? Se expresa bajo el estímulo del parásito? </div> </section>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="intermezzo-ggplot">
+<h1>Intermezzo ggplot<a class="headerlink" href="#intermezzo-ggplot" title="Permalink to this heading">#</a></h1>
+<p>Una libreria muy utilizada en R es ggplot2. Esta despliega figuras estéticas y es versátil para personalizar propiedades visuales.
+<a class="reference external" href="https://datacarpentry.org/R-ecology-lesson/instructor/04-visualization-ggplot2.html">https://datacarpentry.org/R-ecology-lesson/instructor/04-visualization-ggplot2.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(ggplot2) # si no tiene la librería, instálela (removiendo el símbolo de comentario)</span>
+
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="c1"># los parametro mínimos: la base de datos (cuentas_mel) y la estética (aes()) que produce los ejes</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">cuentas_mel</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">tratamiento</span><span class="p">,</span><span class="n">cuentas</span><span class="p">))</span> <span class="o">+</span> <span class="c1"># con cada &quot;+&quot; vamos incluyendo capas de complejidad</span>
+  <span class="n">geom_boxplot</span><span class="p">()</span> <span class="c1"># en forma de boxplot </span>
+
+
+<span class="n">ggplot</span><span class="p">(</span><span class="n">cuentas_mel</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">tratamiento</span><span class="p">,</span><span class="n">cuentas</span><span class="p">))</span> <span class="o">+</span>
+  <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">geom_jitter</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span> <span class="c1"># define los puntos y opcionalmente el color</span>
+
+<span class="c1"># y así se pueden incluir capas</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">cuentas_mel</span><span class="p">,</span><span class="n">aes</span><span class="p">(</span><span class="n">tratamiento</span><span class="p">,</span><span class="n">cuentas</span><span class="p">))</span> <span class="o">+</span>
+  <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">geom_jitter</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">ggtitle</span><span class="p">(</span><span class="s2">&quot;Expresión de gen FBgn0041183&quot;</span><span class="p">)</span> <span class="c1">#personaliza el título</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Ejercicio</b>  Repita los mismos pasos para obtner una gráfica del mismo gen en otra especie cercana, D. sechellia: https://raw.githubusercontent.com/lauraalazar/Online_BioComp/refs/heads/master/sec_FBgn0172832.txt </div><p>Ahora vamos a combinar los dos dataset para generar una gráfica unificada</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Primero hay que incluir una columna en cada dataset que defina la especie, llamada &quot;sp&quot;
+cuentas_mel$sp &lt;- rep(&quot;mel&quot;,6) # creamos un vector que repite &quot;mel&quot; 6 veces
+cuentas_sec$sp &lt;- rep(&quot;sec&quot;,6) # creamos un vector similar para sec
+
+# Union de los dos dataset
+cuentas_2spp &lt;- rbind(cuentas_mel,cuentas_sec)
+cuentas_2spp
+
+# Por último vamos a generar una gráfica con las dos especies
+ggplot(cuentas_2spp,aes(tratamiento,cuentas)) +
+  geom_boxplot() +
+  geom_jitter(color = &quot;blue&quot;) +
+  facet_wrap(facets = vars(sp)) +
+  ggtitle(&quot;Expresión de gen Tep1 en D. melanogaste y D. sechellia&quot;)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -470,22 +564,13 @@ echo Hello World!
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro_linux.html"
+       href="highthroughput.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introducción a la Terminal</p>
+        <p class="prev-next-title">Secuenciación Masiva</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="variables.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Variables, declaraciones y loops</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -505,9 +590,18 @@ echo Hello World!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editores-de-texto">Editores de Texto</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hacer-un-archivo-ejecutable">Hacer un archivo ejecutable</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Alineamientos y cuentas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alineamientos">Alineamientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuentas">Cuentas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expresion-diferencial">Expresión Diferencial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-gen-con-expresion-diferencial">Análisis de gen con expresión diferencial</a></li>
 </ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-ggplot">Intermezzo ggplot</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
